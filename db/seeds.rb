@@ -16,8 +16,8 @@ categories = Category.create!([
   ])
 
 tests = Test.create!([
-  {title: 'Hard Rock группы', level: 0, category_id: categories[0].id},
-  {title: 'Французские комедии', level: 1, category_id: categories[1].id},
+  {title: 'Hard Rock группы', level: 0, category_id: categories[0].id, author_id: users[0].id},
+  {title: 'Французские комедии', level: 1, category_id: categories[1].id, author_id: users[1].id},
   {title: 'Кино СССР', level: 0, category_id: categories[1].id}
   ])
 
@@ -45,9 +45,9 @@ answers = Answer.create!([
   {question_id: questions[5].id, body: 'Шелезяка'}
   ])
 
-passed_tests = PassedTest.create!([
+tests_users = TestsUser.create!([
   {user_id: users[0].id, test_id: tests[0].id},
   {user_id: users[0].id, test_id: tests[2].id},
   {user_id: users[1].id, test_id: tests[0].id},
-  {user_id: users[1].id, test_id: tests[1].id},
+  {user_id: users[1].id, test_id: tests[1].id}
   ])
