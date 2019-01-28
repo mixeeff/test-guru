@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 users = User.create!([
-  {name: 'Иван Петров', login: 'ipetrov', password: '12345'},
-  {name: 'Мария Иванова', login: 'masha888', password: 'butterfly34'}
+  {name: 'Иван Петров', login: 'ipetrov', password: '12345', email: 'ivanpetrov@superpupermail.ru'},
+  {name: 'Мария Иванова', login: 'masha888', password: 'butterfly34', email: 'masha888@superpupermail.ru'}
   ])
 
 categories = Category.create!([
@@ -16,9 +16,9 @@ categories = Category.create!([
   ])
 
 tests = Test.create!([
-  {title: 'Hard Rock группы', level: 0, category_id: categories[0].id, author_id: users[0].id},
-  {title: 'Французские комедии', level: 1, category_id: categories[1].id, author_id: users[1].id},
-  {title: 'Кино СССР', level: 0, category_id: categories[1].id}
+  {title: 'Hard Rock группы', level: 1, category_id: categories[0].id, author_id: users[0].id},
+  {title: 'Французские комедии', level: 2, category_id: categories[1].id, author_id: users[1].id},
+  {title: 'Кино СССР', level: 3, category_id: categories[1].id}
   ])
 
 questions = Question.create!([

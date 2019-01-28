@@ -8,6 +8,10 @@ Bundler.require(*Rails.groups)
 
 module TestGuru
   VERSION = '0.1.0'.freeze
+  EASY_LEVEL = (0..1).freeze
+  MEDIUM_LEVEL = (2..4).freeze
+  HARD_LEVEL = (5..Float::INFINITY).freeze
+
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
