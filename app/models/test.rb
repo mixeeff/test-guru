@@ -5,12 +5,11 @@ class Test < ApplicationRecord
   has_many :tests_users
   has_many :users, through: :tests_users, dependent: :destroy
 
-  scope :easy, -> { where(level: TestGuru::EASY_LEVEL) }
-  scope :medium, -> { where(level: TestGuru::MEDIUM_LEVEL) }
-  scope :hard, -> { where(level: TestGuru::HARD_LEVEL) }
   scope :by_level, -> (level) { where(level: level) }
-
-  scope :find_by_category_name, ->(category_name) {
+  scope :easy, -> { by_level(0..1) }
+  scope :medium, -> { by_level(2..4) }
+  scope :hard, -> { by_level(5..Float::INFINITY) }
+  scope :with_category, ->(category_name) {
     joins(:category).where(categories: { title: category_name })
                     .order(title: :desc)
   }

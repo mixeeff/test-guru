@@ -7,8 +7,6 @@ class Answer < ApplicationRecord
   validate :one_to_four_answers_per_question
 
   def one_to_four_answers_per_question
-    if question.answers.count >= 4
-      errors.add(:question_id, "Не более 4 вариантов ответов")
-    end
+    errors.add(:question_id, "Не более 4 вариантов ответов") if question.answers.count >= 4
   end
 end

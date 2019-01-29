@@ -16,38 +16,48 @@ categories = Category.create!([
   ])
 
 tests = Test.create!([
-  {title: 'Hard Rock группы', level: 1, category_id: categories[0].id, author_id: users[0].id},
-  {title: 'Французские комедии', level: 2, category_id: categories[1].id, author_id: users[1].id},
-  {title: 'Кино СССР', level: 3, category_id: categories[1].id}
+  {title: 'Hard Rock группы', level: 1, category: categories[0], author: users[0]},
+  {title: 'Французские комедии', level: 2, category: categories[1], author: users[1]},
+  {title: 'Кино СССР', level: 3, category: categories[1]},
+  {title: 'Art и Progressive Rock группы', level: 5, category: categories[1]}
   ])
 
 questions = Question.create!([
-  {test_id: tests[0].id, body: "Имя первого вокалиста группы ACDC"},
-  {test_id: tests[0].id, body: "Название первого альбома группы 'Jethro Tull'"},
-  {test_id: tests[1].id, body: "Актер игравший жандарма в серии комедий"},
-  {test_id: tests[1].id, body: "Партнер Пьера Ришара в фильме 'Невезучие'"},
-  {test_id: tests[2].id, body: "Режиссер фильма 'Иваново детство'"},
-  {test_id: tests[2].id, body: "Название планеты на которой происходит действие фильма 'Кин-дза-дза'"}
+  {test: tests[0], body: "Имя первого вокалиста группы ACDC"},
+  {test: tests[0], body: "Название первого альбома группы 'Jethro Tull'"},
+  {test: tests[1], body: "Актер игравший жандарма в серии комедий"},
+  {test: tests[1], body: "Партнер Пьера Ришара в фильме 'Невезучие'"},
+  {test: tests[2], body: "Режиссер фильма 'Иваново детство'"},
+  {test: tests[2], body: "Название планеты на которой происходит действие фильма 'Кин-дза-дза'"},
+  {test: tests[3], body: "Основатель, вокалист и композитор Van der Graaf Generator"},
+  {test: tests[3], body: "Что изображено на обложке альбома Dark side of the moon"},
   ])
 
-answers = Answer.create!([
-  {question_id: questions[0].id, body: 'Бон Скотт', correct: true},
-  {question_id: questions[0].id, body: 'Брюс Дикинсон'},
-  {question_id: questions[1].id, body: 'Benefit', correct: true},
-  {question_id: questions[1].id, body: 'Aqualung'},
-  {question_id: questions[2].id, body: 'Луи де Фюнес', correct: true},
-  {question_id: questions[2].id, body: 'Жан Поль Бельмондо'},
-  {question_id: questions[3].id, body: 'Клод Моне'},
-  {question_id: questions[3].id, body: 'Жерар Депардье', correct: true},
-  {question_id: questions[4].id, body: 'Никита Михалков'},
-  {question_id: questions[4].id, body: 'Андрей Тарковский', correct: true},
-  {question_id: questions[5].id, body: 'Плюк', correct: true},
-  {question_id: questions[5].id, body: 'Шелезяка'}
+Answer.create!([
+  {question: questions[0], body: 'Бон Скотт', correct: true},
+  {question: questions[0], body: 'Брюс Дикинсон'},
+  {question: questions[1], body: 'Benefit', correct: true},
+  {question: questions[1], body: 'Aqualung'},
+  {question: questions[2], body: 'Луи де Фюнес', correct: true},
+  {question: questions[2], body: 'Жан Поль Бельмондо'},
+  {question: questions[3], body: 'Клод Моне'},
+  {question: questions[3], body: 'Жерар Депардье', correct: true},
+  {question: questions[4], body: 'Никита Михалков'},
+  {question: questions[4], body: 'Андрей Тарковский', correct: true},
+  {question: questions[5], body: 'Плюк', correct: true},
+  {question: questions[5], body: 'Шелезяка'},
+  {question: questions[6], body: 'Роберт Фрипп'},
+  {question: questions[6], body: 'Питер Хэммилл'},
+  {question: questions[6], body: 'Йон Андерсон'},
+  {question: questions[6], body: 'Джим Моррисон'},
+  {question: questions[7], body: 'Призма'},
+  {question: questions[7], body: 'Линза'},
+  {question: questions[7], body: 'Калейдоскоп'}
   ])
 
 tests_users = TestsUser.create!([
-  {user_id: users[0].id, test_id: tests[0].id},
-  {user_id: users[0].id, test_id: tests[2].id},
-  {user_id: users[1].id, test_id: tests[0].id},
-  {user_id: users[1].id, test_id: tests[1].id}
+  {user: users[0], test: tests[0]},
+  {user: users[0], test: tests[2]},
+  {user: users[1], test: tests[0]},
+  {user: users[1], test: tests[1]}
   ])
