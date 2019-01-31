@@ -18,6 +18,6 @@ class Test < ApplicationRecord
   validates :title, presence: true, uniqueness: { scope: :level }
 
   def self.titles_by_category_name(category_name)
-    find_by_category_name(category_name).pluck(:title)
+    with_category(category_name).pluck(:title)
   end
 end
