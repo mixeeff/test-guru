@@ -1,0 +1,12 @@
+<h1><%= @question.body %></h1>
+
+<% if @question.answers.any? %>
+<%= render @question.answers %>
+
+<% else %>
+  <p>У этого вопроса пока нет ответов</p>
+<% end %>
+
+<p>
+  <%= link_to 'Назад', test_path(@question.test) %>
+</p>

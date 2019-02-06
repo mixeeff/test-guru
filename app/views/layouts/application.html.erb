@@ -11,5 +11,11 @@
 
   <body>
     <%= yield %>
+    <footer>
+      <hr>
+      <p><%= link_to 'Test-Guru', github_url('mixeeff', 'test-guru') %>
+      - система работы с онлайн-тестами. Учебный проект в онлайн-школе <%= link_to 'Thinknetica', 'https://thinknetica.com' %></p>
+      <p>© Дмитрий Михеев, <%= this_year %></p>
+    </footer>
   </body>
 </html>
