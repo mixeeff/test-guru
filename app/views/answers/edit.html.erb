@@ -1,0 +1,9 @@
+<h1>Редактирование ответа</h1>
+
+<p>
+  Вопрос: <%= @answer.question.body%>
+</p>
+
+<%= render 'form', answer: @answer, button_text: 'Обновить ответ' %>
+
+<%= link_to 'Назад', question_path(@answer.question) %>

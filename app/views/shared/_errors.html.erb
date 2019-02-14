@@ -1,5 +1,5 @@
 <% if resource.errors.present? %>
-  <div>
+  <div id="error_explanation">
     <h2>Обнаружены ошибки:</h2>
     <ul>
       <% resource.errors.full_messages.each do |message| %>

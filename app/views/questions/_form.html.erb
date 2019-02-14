@@ -2,7 +2,7 @@
   <%= render 'shared/errors', resource: @question %>
   <p>
     <%= form.label :body, 'Текст вопроса' %><br>
-    <%= form.text_field :body %>
+    <%= form.text_area :body, rows: 7, cols: 60 %>
   </p>
   <p>
   <%= form.submit button_text %>

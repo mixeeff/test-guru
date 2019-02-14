@@ -4,7 +4,7 @@ class Answer < ApplicationRecord
   scope :correct, -> { where(correct: true) }
 
   validates :body, presence: true
-  validate :one_to_four_answers_per_question
+  validate :one_to_four_answers_per_question, on: :create
 
   def one_to_four_answers_per_question
     errors.add(:question_id, "Не более 4 вариантов ответов") if question.answers.count >= 4
