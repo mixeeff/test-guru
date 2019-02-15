@@ -1,6 +1,6 @@
 <h2>Тест "<%= @test_passage.test.title %>" завершен</h2>
 <p>
-  <% if @test_passage.test_result >= 85 %>
+  <% if @test_passage.successful? %>
       <span id="passed_test_results"><%= @test_passage.test_result %>%</span>
         верных ответов.<br>
       Поздравляем! Вы прошли тест.

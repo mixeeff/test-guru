@@ -23,14 +23,14 @@ tests = Test.create!([
   ])
 
 questions = Question.create!([
-  {test: tests[0], body: "Имя первого вокалиста группы ACDC", sort_index: 1},
-  {test: tests[0], body: "Название первого альбома группы 'Jethro Tull'", sort_index: 2},
-  {test: tests[1], body: "Актер игравший жандарма в серии комедий", sort_index: 1},
-  {test: tests[1], body: "Партнер Пьера Ришара в фильме 'Невезучие'", sort_index: 2},
-  {test: tests[2], body: "Режиссер фильма 'Иваново детство'", sort_index: 1},
-  {test: tests[2], body: "Название планеты на которой происходит действие фильма 'Кин-дза-дза'", sort_index: 2},
-  {test: tests[3], body: "Основатель, вокалист и композитор Van der Graaf Generator", sort_index: 1},
-  {test: tests[3], body: "Что изображено на обложке альбома Dark side of the moon", sort_index: 2},
+  {test: tests[0], body: "Имя первого вокалиста группы ACDC"},
+  {test: tests[0], body: "Название первого альбома группы 'Jethro Tull'"},
+  {test: tests[1], body: "Актер игравший жандарма в серии комедий"},
+  {test: tests[1], body: "Партнер Пьера Ришара в фильме 'Невезучие'"},
+  {test: tests[2], body: "Режиссер фильма 'Иваново детство'"},
+  {test: tests[2], body: "Название планеты на которой происходит действие фильма 'Кин-дза-дза'"},
+  {test: tests[3], body: "Основатель, вокалист и композитор Van der Graaf Generator"},
+  {test: tests[3], body: "Что изображено на обложке альбома Dark side of the moon"},
   ])
 
 Answer.create!([

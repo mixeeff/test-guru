@@ -14,11 +14,6 @@ class QuestionsController < ApplicationController
 
   def create
     @question = @test.questions.new(question_params)
-
-    if @test.questions.count > 0
-      @question.sort_index = @test.questions.maximum("sort_index") + 1
-    end
-
     if @question.save
       redirect_to test_path(@test)
     else
