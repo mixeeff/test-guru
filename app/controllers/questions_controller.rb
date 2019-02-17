@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :find_test, only: %i[new create]
-  before_action :find_question, only: %i[show edit update destroy]
+  before_action :set_test, only: %i[new create]
+  before_action :set_question, only: %i[show edit update destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
@@ -10,8 +10,6 @@ class QuestionsController < ApplicationController
     @question = @test.questions.new
   end
 
-  def edit; end
-
   def create
     @question = @test.questions.new(question_params)
     if @question.save
@@ -20,6 +18,8 @@ class QuestionsController < ApplicationController
       render :new
     end
   end
+
+  def edit; end
 
   def update
     if @question.update(question_params)
@@ -40,11 +40,11 @@ class QuestionsController < ApplicationController
     params.require(:question).permit(:body)
   end
 
-  def find_test
+  def set_test
     @test = Test.find(params[:test_id])
   end
 
-  def find_question
+  def set_question
     @question = Question.find(params[:id])
   end
 

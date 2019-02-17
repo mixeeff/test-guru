@@ -23,7 +23,7 @@ class TestPassage < ApplicationRecord
   end
 
   def current_question_num
-    test.questions.order(:id).ids.index(current_question.id) + 1
+    test.questions.order(:id).where('id < ?', current_question.id).count + 1
   end
 
   private
@@ -33,8 +33,7 @@ class TestPassage < ApplicationRecord
   end
 
   def correct_answer?(answer_ids)
-    return correct_answers.count == 0 if answer_ids.nil?
-    correct_answers.ids.sort == answer_ids.map(&:to_i).sort
+    correct_answers.ids.sort == Array(answer_ids).map(&:to_i).sort
   end
 
   def correct_answers
