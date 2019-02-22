@@ -1,4 +1,4 @@
-<h1>Tests</h1>
+<h1>Тесты</h1>
 <% if @tests.present? %>
   <table>
     <tr>
@@ -6,13 +6,17 @@
       <th>Категория</th>
       <th>Уровень</th>
       <th>Кол-во вопросов</th>
-      <th colspan="2">Действия</th>
+      <% if logged_in? %>
+        <th colspan="2">Действия</th>
+      <% end %>
     </tr>
     <%= render @tests %>
   </table>
 <% else %>
   <p>Пока нет ни одного теста</p>
 <% end %>
+<% if logged_in? %>
   <p>
     <%= link_to 'Создать новый тест', new_test_path %>
   </p>
+<% end %>

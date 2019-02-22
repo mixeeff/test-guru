@@ -1,0 +1,16 @@
+<table width = 100%>
+  <tr>
+    <td class = 'nav title'>
+        <%= link_to 'TEST GURU', root_path %>
+    </td>
+    <td class = 'nav user'>
+      <% if logged_in? %>
+          Пользователь: <b><%= current_user.email %></b>
+          <%= link_to 'Выйти', logout_path(current_user), method: :delete %>
+      <% else %>
+          <%= link_to 'Войти', login_path %> | <%= link_to 'Зарегистрироваться', signup_path %>
+      <% end %>
+    </td>
+  </tr>
+</table>
+<hr>

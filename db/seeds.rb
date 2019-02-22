@@ -5,10 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-users = User.create!([
-  {name: 'Иван Петров', login: 'ipetrov', password: '12345', email: 'ivanpetrov@superpupermail.ru'},
-  {name: 'Мария Иванова', login: 'masha888', password: 'butterfly34', email: 'masha888@superpupermail.ru'}
-  ])
 
 categories = Category.create!([
   {title: 'музыка'},
@@ -16,8 +12,8 @@ categories = Category.create!([
   ])
 
 tests = Test.create!([
-  {title: 'Hard Rock группы', level: 1, category: categories[0], author: users[0]},
-  {title: 'Французские комедии', level: 2, category: categories[1], author: users[1]},
+  {title: 'Hard Rock группы', level: 1, category: categories[0]},
+  {title: 'Французские комедии', level: 2, category: categories[1]},
   {title: 'Кино СССР', level: 3, category: categories[1]},
   {title: 'Art и Progressive Rock группы', level: 5, category: categories[0]}
   ])
