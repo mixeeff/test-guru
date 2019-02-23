@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to cookies[:current_path] || tests_path
+      redirect_to cookies.delete(:current_path) || tests_path
     else
       flash.now[:alert] = 'Пользователь с таким логином и паролем не зарегистрирован'
       render :new
