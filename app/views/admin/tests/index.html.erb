@@ -1,0 +1,18 @@
+<h1>Тесты</h1>
+<% if @tests.present? %>
+  <table>
+    <tr>
+      <th align="left">Название</th>
+      <th>Категория</th>
+      <th>Уровень</th>
+      <th>Кол-во вопросов</th>
+      <th colspan="2">Действия</th>
+    </tr>
+    <%= render @tests %>
+  </table>
+<% else %>
+  <p>Пока нет ни одного теста</p>
+<% end %>
+<p>
+  <%= link_to 'Создать новый тест', new_admin_test_path %>
+</p>

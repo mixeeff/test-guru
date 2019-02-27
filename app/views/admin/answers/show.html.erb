@@ -1,0 +1,5 @@
+<p>Вопрос: <%= @answer.question.body %></p>
+<h1><%= @answer.body %></h1>
+
+<%= link_to 'Редактировать', edit_admin_answer_path(@answer) %> |
+<%= link_to 'Назад', admin_question_path(@answer.question) %>
