@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, :controllers => { registrations: 'registrations', sessions: 'sessions' }
+  devise_for :users, :controllers => { sessions: 'sessions' }
 
   devise_scope :admin do
     get 'login', to: 'devise/sessions#new'
@@ -17,7 +17,6 @@ Rails.application.routes.draw do
       resources :questions, except: :index, shallow: true do
         resources :answers, except: :index, shallow: true
       end
-      post :start, on: :member
     end
   end
 
