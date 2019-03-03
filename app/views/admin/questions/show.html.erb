@@ -1,0 +1,21 @@
+<p>Тест: <%= @question.test.title %>
+
+<h1><%= @question.body %></h1>
+
+<% if @question.answers.any? %>
+  <ol>
+  <%= render @question.answers %>
+  </ol>
+
+<% else %>
+  <p>У этого вопроса пока нет ответов</p>
+<% end %>
+
+<p>
+  <%= link_to 'Новый ответ', new_admin_question_answer_path(@question) %>
+</p>
+
+<p>
+  <%= link_to 'Редактировать', edit_admin_question_path(@question) %> |
+  <%= link_to 'Назад', admin_test_path(@question.test) %>
+</p>

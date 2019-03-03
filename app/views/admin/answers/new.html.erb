@@ -1,0 +1,9 @@
+<h1>Создание нового ответа</h1>
+
+<p>
+  Вопрос: <%= @question.body %>
+</p>
+
+<%= render 'form', button_text: 'Создать ответ' %>
+
+<%= link_to 'Назад', admin_question_path(@question) %>

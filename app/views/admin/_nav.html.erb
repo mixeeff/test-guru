@@ -1,0 +1,7 @@
+<div class="nav nav-admin">
+  <span class="nav title">Панель управления Test Guru</span>
+  <div class="nav user">
+      Администратор: <b class="nav user-email"><%= current_user.full_name %></b> |
+      <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
+  </div>
+</div>
