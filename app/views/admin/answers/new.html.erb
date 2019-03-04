@@ -1,9 +1,10 @@
-<h1>Создание нового ответа</h1>
+<h1><%= t('.header') %></h1>
 
 <p>
-  Вопрос: <%= @question.body %>
+  <%= Question.model_name.human %>:
+  <%= @question.body %>
 </p>
 
-<%= render 'form', button_text: 'Создать ответ' %>
+<%= render 'form' %>
 
-<%= link_to 'Назад', admin_question_path(@question) %>
+<%= link_to t('back'), admin_question_path(@question) %>

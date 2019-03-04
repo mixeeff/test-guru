@@ -1,0 +1,135 @@
+ru:
+  actions: "Действия"
+  activerecord:
+    models:
+      admin: "Администратор"
+      answer: "Ответ"
+      category: "Категория"
+      question: "Вопрос"
+      test: "Тест"
+      user: "Пользователь"
+
+    attributes:
+      answer:
+        body: "Текст ответа"
+        correct: "Правильный"
+
+      question:
+        body: "Текст вопроса"
+
+      test:
+        category_id: "Категория"
+        level: "Уровень"
+        title: "Название"
+
+      user:
+        first_name: "Имя"
+        last_name: "Фамилия"
+        email: "Email"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        remember_me: "Запомнить меня"
+
+  admin:
+    admin_required: "Эта страница доступна только администратору"
+
+    answers:
+      new:
+        header: "Создание нового ответа"
+      create:
+        success: "Ответ успешно создан"
+      edit:
+        header: "Редактирование ответа"
+      update:
+        success: "Ответ успешно обновлен"
+      destroy:
+        deleted: "Ответ удален"
+
+    nav:
+      header: "Панель управления Тест Гуру"
+
+    questions:
+      show:
+        new_answer: "Создать новый ответ"
+        no_answers: "У этого вопроса пока нет ответов"
+      new:
+        header: "Создание нового вопроса для теста \"%{test_title}\""
+      create:
+        success: "Вопрос успешно создан"
+      edit:
+        header: "Редактирование вопроса для теста \"%{test_title}\""
+      update:
+        success: "Вопрос успешно обновлен"
+      destroy:
+        deleted: "Вопрос удален"
+
+    tests:
+      index:
+        header: "Доступные тесты"
+        create: "Создать новый тест"
+        questions_count: "Кол-во вопросов"
+        actions: "Действия"
+        no_tests: "Пока нет ни одного теста"
+      show:
+        no_questions: "У этого теста пока нет вопросов"
+        create_new_question: "Создать новый вопрос"
+      new:
+        header: "Создание теста"
+      create:
+        success: "Тест успешно создан"
+      edit:
+        header: "Редактирование теста"
+      update:
+        success: "Тест успешно обновлен"
+      destroy:
+        deleted: "Тест удален"
+
+      test:
+        start: "Старт"
+
+  back: "Назад"
+  confirm: "Вы уверены?"
+  delete: "Удалить"
+  edit: "Редактировать"
+
+  layouts:
+    nav:
+      app_name: "Тест Гуру"
+
+  sessions:
+    create:
+      welcome: "Привет, %{user_name}!"
+
+  shared:
+    errors:
+      header:
+        one: "Обнаружена %{count} ошибка"
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        other: "Обнаружено %{count} ошибки"
+
+  tests:
+    index:
+      header: "Доступные тесты"
+      questions_count: "Кол-во вопросов"
+      actions: "Действия"
+      no_tests: "Пока нет ни одного теста"
+    test:
+      start: "Старт"
+
+  tests_mailer:
+    completed_test:
+      subject: 'Вы только что прошли тест в TestGuru'
+
+  test_not_found: "Теста с таким номером нет"
+
+  test_passages:
+    result:
+      header: "Тест \"%{title}\" завершен"
+      test_passed_html: "<span id=\"passed_test_results\">%{test_result}</span>% верных ответов. Поздравляем! Тест пройден."
+      test_failed_html: "<span id=\"failed_test_results\">%{test_result}</span>% верных ответов. Тест не пройден."
+    show:
+      header: "Проходим тест %{test_title}"
+      question_number: "Вопрос %{num} из %{total}"
+      next: "Следующий вопрос"
+      all_tests: "Все тесты"

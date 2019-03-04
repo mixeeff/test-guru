@@ -1,0 +1,133 @@
+en:
+  actions: "Actions"
+  activerecord:
+    models:
+      admin: "Admin"
+      answer: "Answer"
+      category: "Category"
+      question: "Question"
+      test: "Test"
+      user: "User"
+
+    attributes:
+      answer:
+        body: "Answer body"
+        correct: "Correct"
+
+      question:
+        body: "Question body"
+
+      test:
+        category_id: "Category"
+        level: "Level"
+        title: "Title"
+
+      user:
+        first_name: "First name"
+        last_name: "Last name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        remember_me: "Remember me"
+
+  admin:
+    admin_required: "This page requires admin's permissions"
+
+    answers:
+      new:
+        header: "Creating new answer"
+      create:
+        success: "Answer successfully created"
+      edit:
+        header: "Editing answer"
+      update:
+        success: "Answer successfully updated"
+      destroy:
+        deleted: "Answer deleted"
+
+    nav:
+      header: "Test Guru Admin panel"
+
+    questions:
+      show:
+        new_answer: "Create new answer"
+        no_answers: "This questions has no answers yet"
+      new:
+        header: "Creating new question for test '%{test_title}'"
+      create:
+        success: "Question successfully created"
+      edit:
+        header: "Editing question for test '%{test_title}'"
+      update:
+        success: "Question successfully updated"
+      destroy:
+        deleted: "Question deleted"
+
+    tests:
+      index:
+        header: "Available tests"
+        create: "Create new test"
+        questions_count: "Questions count"
+        actions: "Actions"
+        no_tests: "There are no tests yet"
+      show:
+        create_new_question: "Create new question"
+        no_questions: "This test has no questions yet"
+      new:
+        header: "Create test"
+      create:
+        success: "Test successfully created"
+      edit:
+        header: "Edit test"
+      update:
+        success: "Test successfully updated"
+      destroy:
+        deleted: "Test deleted"
+
+      test:
+        start: "Start"
+
+  back: "Back"
+  confirm: "Are you sure?"
+  delete: "Delete"
+  edit: "Edit"
+
+  layouts:
+    nav:
+      app_name: "Test Guru"
+
+  sessions:
+    create:
+      welcome: "Hello, %{user_name}!"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+
+  tests:
+    index:
+      header: "Available tests"
+      questions_count: "Questions count"
+      actions: "Actions"
+      no_tests: "There are no tests yet"
+    test:
+      start: "Start"
+
+  tests_mailer:
+    completed_test:
+      subject: "You just completed the Test Guru test"
+
+  test_not_found: "No test with this number"
+
+  test_passages:
+    result:
+      header: "The '%{title}' test completed"
+      test_passed_html: "<span id=\"passed_test_results\">%{test_result}</span>% of answers are correct. Congratulations! Test passed."
+      test_failed_html: "<span id=\"failed_test_results\">%{test_result}</span>% of answers are correct. Test failed."
+    show:
+      header: "Passing test %{test_title}"
+      question_number: "Question %{num} from %{total}"
+      next: "Next question"
+      all_tests: "Все тесты"

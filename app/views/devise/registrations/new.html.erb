@@ -1,14 +1,14 @@
-<h2>Регистрация в TestGuru</h2>
+<h2><%= t('.header') %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="field">
-    <%= f.label :first_name, "Имя" %><br />
+    <%= f.label :first_name %><br />
     <%= f.text_field :first_name, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :last_name, "Фамилия" %><br />
+    <%= f.label :last_name %><br />
     <%= f.text_field :last_name %>
   </div>
 
@@ -18,7 +18,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :password, "Пароль" %>
+    <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -26,12 +26,12 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, "Подтверждение пароля" %><br />
+    <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Зарегистрироваться" %>
+    <%= f.submit %>
   </div>
 <% end %>
 
