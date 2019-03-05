@@ -1,4 +1,6 @@
-<p>Тест: <%= @question.test.title %>
+<p>
+  <%= Test.model_name.human %>:
+  <%= @question.test.title %>
 
 <h1><%= @question.body %></h1>
 
@@ -8,14 +10,14 @@
   </ol>
 
 <% else %>
-  <p>У этого вопроса пока нет ответов</p>
+  <p><%= t('.no_answers') %></p>
 <% end %>
 
 <p>
-  <%= link_to 'Новый ответ', new_admin_question_answer_path(@question) %>
+  <%= link_to t('.new_answer'), new_admin_question_answer_path(@question) %>
 </p>
 
 <p>
-  <%= link_to 'Редактировать', edit_admin_question_path(@question) %> |
-  <%= link_to 'Назад', admin_test_path(@question.test) %>
+  <%= link_to t('.edit'), edit_admin_question_path(@question) %> |
+  <%= link_to t('.back'), admin_test_path(@question.test) %>
 </p>

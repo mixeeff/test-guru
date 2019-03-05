@@ -1,5 +1,8 @@
-<p>Вопрос: <%= @answer.question.body %></p>
+<p>
+  <%= Answer.model_name.human %>:
+  <%= @answer.question.body %>
+</p>
 <h1><%= @answer.body %></h1>
 
-<%= link_to 'Редактировать', edit_admin_answer_path(@answer) %> |
-<%= link_to 'Назад', admin_question_path(@answer.question) %>
+<%= link_to t('.edit'), edit_admin_answer_path(@answer) %> |
+<%= link_to t('.back'), admin_question_path(@answer.question) %>

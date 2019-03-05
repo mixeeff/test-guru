@@ -1,0 +1,6 @@
+<% I18n.available_locales.each do |locale| %>
+<% if locale == I18n.locale %>
+  <%= I18n.locale %>
+<% else %>
+  <%= link_to I18n.locale, request.path + "?lang=#{I18n.locale}" %> |
+<% end %>

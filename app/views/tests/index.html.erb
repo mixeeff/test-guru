@@ -1,17 +1,17 @@
-<h1>Тесты</h1>
+<h1><%= t('.header') %></h1>
 <% if @tests.present? %>
   <table>
     <tr>
-      <th align="left">Название</th>
-      <th>Категория</th>
-      <th>Уровень</th>
-      <th>Кол-во вопросов</th>
+      <th align="left"><%= Test.human_attribute_name(:title) %></th>
+      <th><%= Test.human_attribute_name(:category_id) %></th>
+      <th><%= Test.human_attribute_name(:level) %></th>
+      <th><%= t('.questions_count') %></th>
       <% if user_signed_in? %>
-        <th colspan="2">Действия</th>
+        <th><%= t('.actions') %></th>
       <% end %>
     </tr>
     <%= render @tests %>
   </table>
 <% else %>
-  <p>Пока нет ни одного теста</p>
+  <p><%= t('.no_tests') %></p>
 <% end %>

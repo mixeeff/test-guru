@@ -5,6 +5,6 @@ class Admin::BaseController < ApplicationController
   layout 'admin'
 
   def admin_required!
-    redirect_to root_path, alert: 'Эта страница доступна только администратору' unless current_user.admin?
+    redirect_to root_path, alert: t('admin.admin_required') unless current_user.admin?
   end
 end

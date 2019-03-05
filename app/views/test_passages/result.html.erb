@@ -1,15 +1,11 @@
-<h2>Тест "<%= @test_passage.test.title %>" завершен</h2>
+<h2><%= t('.header', title: @test_passage.test.title) %></h2>
 <p>
   <% if @test_passage.successful? %>
-      <span id="passed_test_results"><%= @test_passage.test_result %>%</span>
-        верных ответов.<br>
-      Поздравляем! Вы прошли тест.
+      <%= t('.test_passed_html', test_result: @test_passage.test_result) %>
   <% else %>
-      <span id="failed_test_results"><%= @test_passage.test_result %>%</span>
-      верных ответов.<br>
-      Тест не пройден.
+      <%= t('.test_failed_html', test_result: @test_passage.test_result) %>
   <% end %>
 </p>
 <p>
-  <%= link_to 'Все тесты', tests_path %>
+  <%= link_to t('.all_tests'), tests_path %>
 </p>

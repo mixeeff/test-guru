@@ -1,7 +1,7 @@
-<h1> <%= question_header(@question) %> </h1>
+<h1> <%= t('.header', test_title: @question.test.title) %> </h1>
 
-<%= render 'form', button_text: 'Создать вопрос' %>
+<%= render 'form' %>
 
 <p>
-  <%= link_to 'Назад', admin_test_path(@question.test) %>
+  <%= link_to t('.back'), admin_test_path(@question.test) %>
 </p>
