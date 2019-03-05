@@ -1,5 +1,14 @@
 ru:
-  actions: "Действия"
+  aliases:
+    - &back
+      back: "Назад"
+    - &confirm
+      confirm: "Вы уверены?"
+    - &delete
+      delete: "Удалить"
+    - &edit
+      edit: "Редактировать"
+
   activerecord:
     models:
       admin: "Администратор"
@@ -36,14 +45,21 @@ ru:
     answers:
       new:
         header: "Создание нового ответа"
+        <<: *back
       create:
         success: "Ответ успешно создан"
       edit:
         header: "Редактирование ответа"
+        <<: *back
       update:
         success: "Ответ успешно обновлен"
       destroy:
         deleted: "Ответ удален"
+
+      answer:
+        <<: *edit
+        <<: *delete
+        <<: *confirm
 
     nav:
       header: "Панель управления Тест Гуру"
@@ -52,16 +68,26 @@ ru:
       show:
         new_answer: "Создать новый ответ"
         no_answers: "У этого вопроса пока нет ответов"
+        <<: *edit
+        <<: *back
       new:
         header: "Создание нового вопроса для теста \"%{test_title}\""
+        <<: *back
       create:
         success: "Вопрос успешно создан"
       edit:
         header: "Редактирование вопроса для теста \"%{test_title}\""
+        <<: *back
       update:
         success: "Вопрос успешно обновлен"
       destroy:
         deleted: "Вопрос удален"
+      question_not_found: "Вопроса с таким номером нет"
+
+      question:
+        <<: *edit
+        <<: *delete
+        <<: *confirm
 
     tests:
       index:
@@ -73,24 +99,27 @@ ru:
       show:
         no_questions: "У этого теста пока нет вопросов"
         create_new_question: "Создать новый вопрос"
+        actions: "Действия"
+        <<: *back
       new:
         header: "Создание теста"
+        <<: *back
       create:
         success: "Тест успешно создан"
       edit:
         header: "Редактирование теста"
+        <<: *back
       update:
         success: "Тест успешно обновлен"
       destroy:
         deleted: "Тест удален"
+      test_not_found: "Теста с таким номером нет"
 
       test:
         start: "Старт"
-
-  back: "Назад"
-  confirm: "Вы уверены?"
-  delete: "Удалить"
-  edit: "Редактировать"
+        <<: *edit
+        <<: *delete
+        <<: *confirm
 
   layouts:
     nav:
@@ -120,8 +149,6 @@ ru:
   tests_mailer:
     completed_test:
       subject: 'Вы только что прошли тест в TestGuru'
-
-  test_not_found: "Теста с таким номером нет"
 
   test_passages:
     result:

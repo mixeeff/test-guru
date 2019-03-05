@@ -1,5 +1,14 @@
 en:
-  actions: "Actions"
+  aliases:
+    - &back
+      back: "Backkkk"
+    - &confirm
+      confirm: "Are you sure????"
+    - &delete
+      delete: "Deleteeee"
+    - &edit
+      edit: "Editttt"
+
   activerecord:
     models:
       admin: "Admin"
@@ -36,6 +45,7 @@ en:
     answers:
       new:
         header: "Creating new answer"
+        <<: *back
       create:
         success: "Answer successfully created"
       edit:
@@ -45,6 +55,11 @@ en:
       destroy:
         deleted: "Answer deleted"
 
+      answer:
+        <<: *edit
+        <<: *delete
+        <<: *confirm
+
     nav:
       header: "Test Guru Admin panel"
 
@@ -52,16 +67,26 @@ en:
       show:
         new_answer: "Create new answer"
         no_answers: "This questions has no answers yet"
+        <<: *edit
+        <<: *back
       new:
         header: "Creating new question for test '%{test_title}'"
+        <<: *back
       create:
         success: "Question successfully created"
       edit:
         header: "Editing question for test '%{test_title}'"
+        <<: *back
       update:
         success: "Question successfully updated"
       destroy:
         deleted: "Question deleted"
+      question_not_found: "No question with this number"
+
+      question:
+        <<: *edit
+        <<: *delete
+        <<: *confirm
 
     tests:
       index:
@@ -73,19 +98,25 @@ en:
       show:
         create_new_question: "Create new question"
         no_questions: "This test has no questions yet"
+        <<: *back
       new:
         header: "Create test"
+        <<: *back
       create:
         success: "Test successfully created"
       edit:
         header: "Edit test"
+        <<: *back
       update:
         success: "Test successfully updated"
       destroy:
         deleted: "Test deleted"
+      test_not_found: "No test with this number"
 
       test:
         start: "Start"
+        <<: *edit
+        <<: *delete
 
   back: "Back"
   confirm: "Are you sure?"
@@ -118,8 +149,6 @@ en:
   tests_mailer:
     completed_test:
       subject: "You just completed the Test Guru test"
-
-  test_not_found: "No test with this number"
 
   test_passages:
     result:
