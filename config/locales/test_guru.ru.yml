@@ -121,10 +121,6 @@ ru:
         <<: *delete
         <<: *confirm
 
-  layouts:
-    nav:
-      app_name: "Тест Гуру"
-
   sessions:
     create:
       welcome: "Привет, %{user_name}!"
@@ -136,6 +132,8 @@ ru:
         few: "Обнаружено %{count} ошибки"
         many: "Обнаружено %{count} ошибок"
         other: "Обнаружено %{count} ошибки"
+    nav:
+      app_name: "ТЕСТ-ГУРУ"
 
   tests:
     index:
@@ -153,8 +151,9 @@ ru:
   test_passages:
     result:
       header: "Тест \"%{title}\" завершен"
-      test_passed_html: "<span id=\"passed_test_results\">%{test_result}</span>% верных ответов. Поздравляем! Тест пройден."
-      test_failed_html: "<span id=\"failed_test_results\">%{test_result}</span>% верных ответов. Тест не пройден."
+      test_passed_html: "<span class=\"text-success\">%{test_result}%</span> верных ответов. Поздравляем! Тест пройден."
+      test_failed_html: "<span class=\"text-danger\">%{test_result}%</span> верных ответов. Тест не пройден."
+      all_tests: "Все тесты"
     show:
       header: "Проходим тест %{test_title}"
       question_number: "Вопрос %{num} из %{total}"
