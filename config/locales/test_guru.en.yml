@@ -1,13 +1,13 @@
 en:
   aliases:
     - &back
-      back: "Backkkk"
+      back: "Back"
     - &confirm
-      confirm: "Are you sure????"
+      confirm: "Are you sure?"
     - &delete
-      delete: "Deleteeee"
+      delete: "Delete"
     - &edit
-      edit: "Editttt"
+      edit: "Edit"
 
   activerecord:
     models:
@@ -118,15 +118,6 @@ en:
         <<: *edit
         <<: *delete
 
-  back: "Back"
-  confirm: "Are you sure?"
-  delete: "Delete"
-  edit: "Edit"
-
-  layouts:
-    nav:
-      app_name: "Test Guru"
-
   sessions:
     create:
       welcome: "Hello, %{user_name}!"
@@ -136,6 +127,8 @@ en:
       header:
         one: "%{count} error detected"
         other: "%{count} errors detected"
+    nav:
+      app_name: "TEST-GURU"
 
   tests:
     index:
@@ -153,8 +146,9 @@ en:
   test_passages:
     result:
       header: "The '%{title}' test completed"
-      test_passed_html: "<span id=\"passed_test_results\">%{test_result}</span>% of answers are correct. Congratulations! Test passed."
-      test_failed_html: "<span id=\"failed_test_results\">%{test_result}</span>% of answers are correct. Test failed."
+      test_passed_html: "<span id=\"text-success\">%{test_result}%</span> of answers are correct. Congratulations! Test passed."
+      test_failed_html: "<span id=\"text-danger\">%{test_result}%</span> of answers are correct. Test failed."
+      all_tests: "Все тесты"
     show:
       header: "Passing test %{test_title}"
       question_number: "Question %{num} from %{total}"

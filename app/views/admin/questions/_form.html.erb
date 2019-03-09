@@ -1,11 +1,11 @@
+<div class="form-group">
 <%= form_with model: [:admin, @test, @question], local: true do |form| %>
-  <%= render 'shared/errors', resource: @question %>
   <p>
     <%= form.label :body %><br>
-    <%= form.text_area :body, rows: 7, cols: 60 %>
+    <%= form.text_area :body, rows: 7, cols: 60, class:'form-control' %>
   </p>
   <p>
-  <%= form.submit %>
+  <%= form.submit class:'btn btn-primary' %>
   </p>
   <% end %>
-</form>
+</div>

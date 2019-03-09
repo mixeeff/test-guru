@@ -52,13 +52,16 @@ en:
       updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again"
       new:
         header: "New user registration"
+        remember_me: "Remember me"
+        minimum_password_length: "%{length} characters minimum"
+        sign_up: "Sign up"
     sessions:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
       new:
         header: "Signing in"
-        create: "Sign in"
+        sign_in: "Sign in"
       create:
         welcome: "Hello, %{user}!"
     shared:

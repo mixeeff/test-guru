@@ -1,0 +1,27 @@
+<% if current_user && current_user.admin? %>
+  <nav class="navbar navbar-dark bg-primary">
+  <%= link_to t('.app_name'), admin_tests_path, class: "navbar-brand" %>
+<% else %>
+  <nav class="navbar navbar-dark bg-dark">
+  <%= link_to t('.app_name'), root_path, class: "navbar-brand" %>
+<% end %>
+
+
+  <div class="d-flex flex-row-reverse">
+
+    <div class="navbar-text mr-3">
+      <%= link_to 'RU', request.path + "?lang=ru" %> |
+      <%= link_to 'EN', request.path + "?lang=en" %>
+    </div>
+
+    <div class="navbar-text mr-3">
+      <% if user_signed_in? %>
+        <%= current_user.model_name.human %>: <b><%= current_user.full_name %></b> |
+        <%= link_to t('devise.shared.links.sign_out'), destroy_user_session_path, method: :delete %>
+        <% else %>
+            <%= link_to t('devise.shared.links.sign_in'), new_user_session_path %> | <%= link_to t('devise.shared.links.sign_up'), new_user_registration_path %>
+        <% end %>
+    </div>
+
+  </div>
+</nav>

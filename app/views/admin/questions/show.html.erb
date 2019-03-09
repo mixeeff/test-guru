@@ -1,23 +1,27 @@
-<p>
-  <%= Test.model_name.human %>:
-  <%= @question.test.title %>
+<%= render 'shared/errors', resource: @question %>
+<div class="container justify-content-center mt-3">
+  <p class = 'badge badge-secondary'>
+    <%= Test.model_name.human %>:
+    <%= @question.test.title %>
+  </p>
 
-<h1><%= @question.body %></h1>
+  <h1 class="mb-4"><%= @question.body %></h1>
 
-<% if @question.answers.any? %>
-  <ol>
-  <%= render @question.answers %>
-  </ol>
+  <% if @question.answers.any? %>
+    <ol>
+      <%= render @question.answers %>
+    </ol>
 
-<% else %>
-  <p><%= t('.no_answers') %></p>
-<% end %>
+  <% else %>
+    <p><%= t('.no_answers') %></p>
+  <% end %>
 
-<p>
-  <%= link_to t('.new_answer'), new_admin_question_answer_path(@question) %>
-</p>
+  <p class="text-center mt-4">
+    <%= link_to t('.new_answer'), new_admin_question_answer_path(@question) %>
+  </p>
 
-<p>
-  <%= link_to t('.edit'), edit_admin_question_path(@question) %> |
-  <%= link_to t('.back'), admin_test_path(@question.test) %>
-</p>
+  <p class="text-center">
+    <%= link_to t('.edit'), edit_admin_question_path(@question) %> |
+    <%= link_to t('.back'), admin_test_path(@question.test) %>
+  </p>
+</div>

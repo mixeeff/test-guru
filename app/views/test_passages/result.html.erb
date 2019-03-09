@@ -1,11 +1,13 @@
-<h2><%= t('.header', title: @test_passage.test.title) %></h2>
-<p>
+<div class="container-fluid justify-content-center mt-3">
+  <h2><%= t('.header', title: @test_passage.test.title) %></h2>
+  <p>
   <% if @test_passage.successful? %>
       <%= t('.test_passed_html', test_result: @test_passage.test_result) %>
   <% else %>
       <%= t('.test_failed_html', test_result: @test_passage.test_result) %>
   <% end %>
-</p>
-<p>
+  </p>
+  <p>
   <%= link_to t('.all_tests'), tests_path %>
-</p>
+  </p>
+</div>
