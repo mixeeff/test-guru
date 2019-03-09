@@ -1,6 +1,7 @@
 <% if current_user && current_user.admin? %>
   <nav class="navbar navbar-dark bg-primary">
   <%= link_to t('.app_name'), admin_tests_path, class: "navbar-brand" %>
+  <%= link_to 'Gists', admin_gists_path, class: "text-light" %>
 <% else %>
   <nav class="navbar navbar-dark bg-dark">
   <%= link_to t('.app_name'), root_path, class: "navbar-brand" %>
