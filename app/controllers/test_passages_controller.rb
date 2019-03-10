@@ -16,15 +16,11 @@ class TestPassagesController < ApplicationController
 
   def gist
     gist_data = GistQuestionService.new(@test_passage.current_question).call
-    if gist_data.nil?
-      flash_options = { flash: { error: t('.error') } }
-    else
-      @gist = Gist.new
-      @gist.question = @test_passage.current_question
-      @gist.user = current_user
-      @gist.url = gist_data[:id]
+    @gist = Gist.new(question: @test_passage.current_question, user: current_user, url: gist_data[:html_url])
+    if @gist.valid? && @gist.save
       flash_options = { flash: { success: t('.success_html', link: view_context.gist_link(@gist.url)) } }
-      @gist.save
+    else
+      flash_options = { flash: { error: t('.error') } }
     end
     redirect_to test_passage_path(@test_passage), flash_options
   end

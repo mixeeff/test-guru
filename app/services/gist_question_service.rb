@@ -9,10 +9,6 @@ class GistQuestionService
     @client.create_gist(gist_params)
   end
 
-  def show_params
-    gist_params
-  end
-
   private
   def gist_params
     {
@@ -26,9 +22,6 @@ class GistQuestionService
   end
 
   def gist_content
-    content = [@question.body]
-    content += @question.answers.pluck(:body)
-    content.join("\n")
+    [@question.body, *@question.answers.pluck(:body)].join("\n")
   end
-
 end
