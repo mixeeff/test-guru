@@ -1,4 +1,18 @@
 class GistQuestionService
+  class ResultObject
+    def initialize(response = nil)
+      @response = response
+    end
+
+    def html_url
+      @response&.html_url
+    end
+
+    def success?
+      html_url.present?
+    end
+  end
+
   def initialize(question, client: nil)
     @question = question
     @test = @question.test
@@ -6,7 +20,10 @@ class GistQuestionService
   end
 
   def call
-    @client.create_gist(gist_params)
+    response = @client.create_gist(gist_params)
+    ResultObject.new(response)
+  rescue OctokitError
+    ResultObject.new
   end
 
   private
