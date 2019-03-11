@@ -19,22 +19,28 @@
             </p>
 
             <p>
-              <%= f.label :email %><br />
+              <%= f.label :email %>
               <%= f.email_field :email, autocomplete: "email", class:'form-control', placeholder: 'email' %>
             </p>
 
             <p>
               <%= f.label :password %>
-              <% if @minimum_password_length %>
-              <em>(<%= t('.minimum_password_length', length: @minimum_password_length) %>)</em>
-              <% end %>
               <%= f.password_field :password, autocomplete: "new-password", class:'form-control' %>
+              <% if @minimum_password_length %>
+                <small class="form-text">(<%= t('.minimum_password_length', length: @minimum_password_length) %>)</small>
+              <% end %>
             </p>
 
-            <p>
-              <%= f.label :password_confirmation %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", class:'form-control' %>
-            </p>
+            <%= f.label :password_confirmation %>
+              <div class="input-group mb-3">
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class:'form-control' %>
+                <div class="input-group-append hide">
+                  <span class="input-group-text">
+                    <%= octicon 'check', class: 'text-success hide' %>
+                    <%= octicon 'x', class: 'text-danger hide' %>
+                  </span>
+                </div>
+              </div>
 
             <p>
               <%= f.submit t('.sign_up'), class: 'btn btn-primary mt-3' %>
