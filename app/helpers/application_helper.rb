@@ -10,6 +10,6 @@ module ApplicationHelper
   end
 
   def flash_message(key, message)
-    content_tag :div, message, class: "alert alert-#{ALERT_CLASSES[key.to_sym]}"
+    content_tag :div, message.html_safe, class: "alert alert-#{ALERT_CLASSES[key.to_sym]}"
   end
 end

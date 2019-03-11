@@ -1,0 +1,15 @@
+<div class="container-fluid justify-content-center mt-3">
+  <h1><%= t('.header') %></h1>
+  <% if @gists.present? %>
+    <table class="table">
+      <tr>
+        <th align="left"><%= Gist.human_attribute_name(:question_id) %></th>
+        <th><%= Gist.human_attribute_name(:url) %></th>
+        <th><%= User.human_attribute_name(:email) %></th>
+      </tr>
+      <%= render @gists %>
+    </table>
+  <% else %>
+    <p><%= t('.no_gists') %></p>
+  <% end %>
+</div>

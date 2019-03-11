@@ -18,12 +18,16 @@ Rails.application.routes.draw do
         resources :answers, except: :index, shallow: true
       end
     end
+    resources :gists, only: :index
   end
 
   get 'admin', to: 'admin/tests#index'
 
   resources :test_passages, only: %i[show update] do
-    get :result, on: :member
+    member do
+      get :result
+      post :gist
+    end
   end
 
   get 'tests/:id/questions', to: 'tests#show'

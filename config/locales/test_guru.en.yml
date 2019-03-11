@@ -14,6 +14,7 @@ en:
       admin: "Admin"
       answer: "Answer"
       category: "Category"
+      gist: "Gist"
       question: "Question"
       test: "Test"
       user: "User"
@@ -22,6 +23,10 @@ en:
       answer:
         body: "Answer body"
         correct: "Correct"
+
+      gist:
+        question_id: "Question"
+        url: "Hash"
 
       question:
         body: "Question body"
@@ -59,6 +64,11 @@ en:
         <<: *edit
         <<: *delete
         <<: *confirm
+
+    gists:
+      index:
+        header: "Gists created"
+        no_gists: "There are no Gists yet"
 
     nav:
       header: "Test Guru Admin panel"
@@ -118,6 +128,9 @@ en:
         <<: *edit
         <<: *delete
 
+  gist_question_service:
+    description: "A question about '%{test_title}' from Test-Guru"
+
   sessions:
     create:
       welcome: "Hello, %{user_name}!"
@@ -144,13 +157,17 @@ en:
       subject: "You just completed the Test Guru test"
 
   test_passages:
+    gist:
+      success_html: "Gist %{link} successfully created"
+      error: "An error occured while saving gist"
     result:
       header: "The '%{title}' test completed"
       test_passed_html: "<span id=\"text-success\">%{test_result}%</span> of answers are correct. Congratulations! Test passed."
       test_failed_html: "<span id=\"text-danger\">%{test_result}%</span> of answers are correct. Test failed."
       all_tests: "Все тесты"
     show:
-      header: "Passing test %{test_title}"
-      question_number: "Question %{num} from %{total}"
-      next: "Next question"
       all_tests: "Все тесты"
+      gist_question: "Gist Question"
+      header: "Passing test %{test_title}"
+      next: "Next question"
+      question_number: "Question %{num} from %{total}"

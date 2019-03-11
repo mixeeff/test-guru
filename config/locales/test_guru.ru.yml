@@ -14,6 +14,7 @@ ru:
       admin: "Администратор"
       answer: "Ответ"
       category: "Категория"
+      gist: "Gist"
       question: "Вопрос"
       test: "Тест"
       user: "Пользователь"
@@ -22,6 +23,10 @@ ru:
       answer:
         body: "Текст ответа"
         correct: "Правильный"
+
+      gist:
+        question_id: "Вопрос"
+        url: "Хэш"
 
       question:
         body: "Текст вопроса"
@@ -60,6 +65,11 @@ ru:
         <<: *edit
         <<: *delete
         <<: *confirm
+
+    gists:
+      index:
+        header: "Gist'ы созданные пользователями"
+        no_gists: "Пока не создано ни одного Gist'a"
 
     nav:
       header: "Панель управления Тест Гуру"
@@ -121,6 +131,9 @@ ru:
         <<: *delete
         <<: *confirm
 
+  gist_question_service:
+    description: "Вопрос теста \"%{test_title}\" из Тест-Гуру"
+
   sessions:
     create:
       welcome: "Привет, %{user_name}!"
@@ -149,13 +162,17 @@ ru:
       subject: 'Вы только что прошли тест в TestGuru'
 
   test_passages:
+    gist:
+      success_html: "Gist %{link} успешно создан"
+      error: "При создании gist произошла ошибка"
     result:
       header: "Тест \"%{title}\" завершен"
       test_passed_html: "<span class=\"text-success\">%{test_result}%</span> верных ответов. Поздравляем! Тест пройден."
       test_failed_html: "<span class=\"text-danger\">%{test_result}%</span> верных ответов. Тест не пройден."
       all_tests: "Все тесты"
     show:
-      header: "Проходим тест %{test_title}"
-      question_number: "Вопрос %{num} из %{total}"
-      next: "Следующий вопрос"
       all_tests: "Все тесты"
+      gist_question: "Сохранить вопрос в gist"
+      header: "Проходим тест %{test_title}"
+      next: "Следующий вопрос"
+      question_number: "Вопрос %{num} из %{total}"
