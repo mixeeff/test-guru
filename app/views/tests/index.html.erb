@@ -3,7 +3,11 @@
   <% if @tests.present? %>
     <table class="table">
       <tr>
-        <th align="left"><%= Test.human_attribute_name(:title) %></th>
+        <th class= "sort-by-title pointer" align="left">
+          <%= Test.human_attribute_name(:title) %>
+          <%= octicon 'arrow-up', class: 'text-success hide' %>
+          <%= octicon 'arrow-down', class: 'text-success hide' %>
+        </th>
         <th><%= Test.human_attribute_name(:category_id) %></th>
         <th><%= Test.human_attribute_name(:level) %></th>
         <th><%= t('.questions_count') %></th>
