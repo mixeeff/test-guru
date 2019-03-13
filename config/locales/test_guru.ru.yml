@@ -110,6 +110,7 @@ ru:
         no_questions: "У этого теста пока нет вопросов"
         create_new_question: "Создать новый вопрос"
         actions: "Действия"
+        edit: "Редактировать тест"
         <<: *back
       new:
         header: "Создание теста"
@@ -121,6 +122,8 @@ ru:
         <<: *back
       update:
         success: "Тест успешно обновлен"
+      form_inline:
+        submit: "OK"
       destroy:
         deleted: "Тест удален"
       test_not_found: "Теста с таким номером нет"

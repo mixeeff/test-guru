@@ -1,5 +1,8 @@
 <div class="container-fluid justify-content-center mt-3">
   <h5><%= t('.header', test_title: @test_passage.test.title) %></h5>
+  <div class="progress mb-3">
+    <%= content_tag :div, "", class: "progress-val", data: { num: @test_passage.current_question_num, total: @test_passage.test.questions.count } %>
+  </div>
 
   <div class="card border-primary">
     <div class="card-header small">

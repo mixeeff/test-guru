@@ -1,6 +1,10 @@
 <div class="container-fluid justify-content-center mt-3">
   <h1><%= t('.header') %></h1>
+
   <% if @tests.present? %>
+
+    <%= render 'shared/errors', resource: @test %>
+
     <table class="table">
       <tr>
         <th class= "sort-by-title pointer" align="left">
@@ -15,9 +19,11 @@
       </tr>
       <%= render @tests %>
     </table>
+
   <% else %>
     <p><%= t('.no_tests') %></p>
   <% end %>
+
   <p class="text-center mt-4">
     <%= link_to t('.create'), new_admin_test_path %>
   </p>
