@@ -108,6 +108,7 @@ en:
       show:
         create_new_question: "Create new question"
         no_questions: "This test has no questions yet"
+        edit: "Edit test"
         <<: *back
       new:
         header: "Create test"
@@ -119,6 +120,8 @@ en:
         <<: *back
       update:
         success: "Test successfully updated"
+      form_inline:
+        submit: "OK"
       destroy:
         deleted: "Test deleted"
       test_not_found: "No test with this number"
