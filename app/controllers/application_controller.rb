@@ -7,6 +7,9 @@ class ApplicationController < ActionController::Base
     { lang: I18n.locale }
   end
 
+  def contact
+  end
+
   private
 
   def set_locale

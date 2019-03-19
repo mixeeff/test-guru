@@ -1,6 +1,6 @@
 <div class="container-fluid justify-content-center mt-3">
   <h2><%= t('.header', title: @test_passage.test.title) %></h2>
-  <p>
+  <p class="lead">
   <% if @test_passage.successful? %>
       <%= t('.test_passed_html', test_result: @test_passage.test_result) %>
   <% else %>

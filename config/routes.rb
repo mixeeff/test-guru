@@ -31,6 +31,9 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'contact', to: 'contact#edit'
+  post 'contact', to: 'contact#send_mail'
+
   get 'tests/:id/questions', to: 'tests#show'
   get 'questions/:id/answers', to: 'questions#show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -1,0 +1,17 @@
+<footer class="footer">
+  <div class="d-flex justify-content-between bg-secondary text-light">
+      <div class="px-2 small">
+        <%= link_to t('.app_name'), github_url('mixeeff', 'test-guru'), target: '_blank', class: 'text-info' %>
+        <%= t('.project') %>
+        <%= link_to 'Thinknetica', 'https://thinknetica.com', target: '_blank', class: 'text-info' %>
+      </div>
+
+      <div class="px-2 small">
+        <%= link_to t('.contact_us'), contact_path, class: 'text-info' %>
+      </div>
+
+      <div class="px-2 small">
+        <%= t('.copyright', year: this_year) %>
+      </div>
+  </div>
+</footer>
