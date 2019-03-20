@@ -5,7 +5,11 @@
     <div class="card border-primary">
       <div class="card-body">
         <div class="form-group">
-          <%= form_with url: contact_path, local: true, method: :post do |form| %>
+          <%= form_with url: feedbacks_path, local: true, method: :post do |form| %>
+            <p>
+              <%= form.label :email, t('.from') %><br>
+              <%= form.email_field :email, autofocus: true, autocomplete: "email", class:'form-control', value: current_user_email %>
+            </p>
             <p>
               <%= form.label :body, t('.body') %><br>
               <%= form.text_area :body, rows: 7, cols: 60, class:'form-control' %>

@@ -136,12 +136,17 @@ en:
   gist_question_service:
     description: "A question about '%{test_title}' from Test-Guru"
 
-  contact:
-    edit:
+  feedbacks:
+    new:
       header: "Contact TEST-GURU admin"
+      from: "Your email"
       send: "Send"
       body: "Your message"
       <<: *back
+    create:
+      email_not_presend: "You should enter your email"
+      body_not_presend: "Message cannot be empty"
+      sent: "Your message has been sent to admin"
 
   sessions:
     create:
@@ -157,8 +162,8 @@ en:
     footer:
       <<: *app_name
       project: "- online-test management. Study project in online school "
-      copyright: "© Дмитрий Михеев, %{year}"
-      contact_us: "Написать нам"
+      copyright: "© Dmitry Mikheev, %{year}"
+      contact_us: "Contact Us"
 
   tests:
     index:

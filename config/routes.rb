@@ -31,8 +31,8 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'contact', to: 'contact#edit'
-  post 'contact', to: 'contact#send_mail'
+  get 'feedbacks', to: 'feedbacks#new'
+  post 'feedbacks', to: 'feedbacks#create'
 
   get 'tests/:id/questions', to: 'tests#show'
   get 'questions/:id/answers', to: 'questions#show'
