@@ -31,8 +31,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'feedbacks', to: 'feedbacks#new'
-  post 'feedbacks', to: 'feedbacks#create'
+  resources :feedbacks, only: [:new, :create]
 
   get 'tests/:id/questions', to: 'tests#show'
   get 'questions/:id/answers', to: 'questions#show'
