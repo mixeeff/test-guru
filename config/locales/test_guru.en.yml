@@ -8,6 +8,8 @@ en:
       delete: "Delete"
     - &edit
       edit: "Edit"
+    - &app_name
+      app_name: "TET-GURU"
 
   activerecord:
     models:
@@ -27,6 +29,9 @@ en:
       gist:
         question_id: "Question"
         url: "Hash"
+
+      feedback:
+        body: "Message body"
 
       question:
         body: "Question body"
@@ -134,6 +139,18 @@ en:
   gist_question_service:
     description: "A question about '%{test_title}' from Test-Guru"
 
+  feedbacks:
+    new:
+      header: "Contact TEST-GURU admin"
+      from: "Your email"
+      send: "Send"
+      body: "Your message"
+      <<: *back
+    create:
+      email_not_presend: "You should enter your email"
+      body_not_presend: "Message cannot be empty"
+      sent: "Your message has been sent to admin"
+
   sessions:
     create:
       welcome: "Hello, %{user_name}!"
@@ -144,7 +161,12 @@ en:
         one: "%{count} error detected"
         other: "%{count} errors detected"
     nav:
-      app_name: "TEST-GURU"
+      <<: *app_name
+    footer:
+      <<: *app_name
+      project: "- online-test management. Study project in online school "
+      copyright: "© Dmitry Mikheev, %{year}"
+      contact_us: "Contact Us"
 
   tests:
     index:

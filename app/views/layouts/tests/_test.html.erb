@@ -1,9 +1,0 @@
-<tr>
-  <td><%= test.title %> </td>
-  <td> <%= test.category.title %> </td>
-  <td align="center"> <%= test.level %> </td>
-  <td align="center"> <%= test.questions.count %> </td>
-  <% if user_signed_in? %>
-    <td> <%= button_to 'Старт', start_test_path(test) %> </td>
-  <% end %>
-</tr>

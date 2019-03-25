@@ -31,6 +31,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :feedbacks, only: [:new, :create]
+
   get 'tests/:id/questions', to: 'tests#show'
   get 'questions/:id/answers', to: 'questions#show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

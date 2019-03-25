@@ -8,12 +8,15 @@ ru:
       delete: "Удалить"
     - &edit
       edit: "Редактировать"
+    - &app_name
+      app_name: "ТЕСТ-ГУРУ"
 
   activerecord:
     models:
       admin: "Администратор"
       answer: "Ответ"
       category: "Категория"
+      feedback: "Письмо администратору"
       gist: "Gist"
       question: "Вопрос"
       test: "Тест"
@@ -23,6 +26,12 @@ ru:
       answer:
         body: "Текст ответа"
         correct: "Правильный"
+
+      category:
+        title: "Названиe"
+
+      feedback:
+        body: "Текст письма"
 
       gist:
         question_id: "Вопрос"
@@ -137,6 +146,18 @@ ru:
   gist_question_service:
     description: "Вопрос теста \"%{test_title}\" из Тест-Гуру"
 
+  feedbacks:
+    new:
+      header: "Письмо администратору ТЕСТ-ГУРУ"
+      from: "Ваш email"
+      send: "Отправить"
+      body: "Текст письма"
+      <<: *back
+    create:
+      email_not_presend: "Вы не указали ваш email"
+      body_not_presend: "Текст сообщения не может быть пустым"
+      sent: "Ваше сообщение отправлено администратору"
+
   sessions:
     create:
       welcome: "Привет, %{user_name}!"
@@ -149,7 +170,12 @@ ru:
         many: "Обнаружено %{count} ошибок"
         other: "Обнаружено %{count} ошибки"
     nav:
-      app_name: "ТЕСТ-ГУРУ"
+      <<: *app_name
+    footer:
+      <<: *app_name
+      project: "- система работы с онлайн-тестами. Учебный проект в онлайн-школе "
+      copyright: "© Дмитрий Михеев, %{year}"
+      contact_us: "Написать нам"
 
   tests:
     index:
