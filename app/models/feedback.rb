@@ -3,6 +3,5 @@ class Feedback
 
   attr_accessor :email, :body, :id
 
-  validates :email, presence: true
-  validates :body, presence: true
+  validates :email, :body, presence: true
 end

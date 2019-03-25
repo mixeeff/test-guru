@@ -16,6 +16,7 @@ ru:
       admin: "Администратор"
       answer: "Ответ"
       category: "Категория"
+      feedback: "Письмо администратору"
       gist: "Gist"
       question: "Вопрос"
       test: "Тест"
@@ -25,6 +26,12 @@ ru:
       answer:
         body: "Текст ответа"
         correct: "Правильный"
+
+      category:
+        title: "Названиe"
+
+      feedback:
+        body: "Текст письма"
 
       gist:
         question_id: "Вопрос"

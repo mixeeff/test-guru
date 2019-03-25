@@ -30,6 +30,9 @@ en:
         question_id: "Question"
         url: "Hash"
 
+      feedback:
+        body: "Message body"
+
       question:
         body: "Question body"
 
