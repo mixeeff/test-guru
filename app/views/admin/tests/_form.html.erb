@@ -15,6 +15,10 @@
       <%= form.number_field :level, class:'form-control' %>
     </p>
     <p>
+      <%= form.label :timer %><br>
+      <%= form.number_field :timer, class:'form-control', placeholder: t('.empty_timer') %>
+    </p>
+    <p>
       <%= form.submit class: 'btn-primary mt-3' %>
     </p>
     <% end %>

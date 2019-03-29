@@ -25,6 +25,14 @@
           <p><%= form.submit t('.next'), class: "btn-primary mt-2" %></p>
         </div>
       <% end %>
+
+      <% unless @test_passage.test.timer.nil? %>
+        <h4>
+          <%= t('.time_left') %>
+          <%= content_tag :span, "", class: "time_left text-success", data: { end_time: set_end_time(@test_passage), path: test_passage_path(@test_passage) } %>
+        </h4>
+      <% end %>
+
     </div>
   </div>
 </div>

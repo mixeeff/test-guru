@@ -9,7 +9,9 @@ en:
     - &edit
       edit: "Edit"
     - &app_name
-      app_name: "TET-GURU"
+      app_name: "TEST-GURU"
+    - &all_tests
+      all_tests: "All tests"
 
   activerecord:
     models:
@@ -40,6 +42,10 @@ en:
         category_id: "Category"
         level: "Level"
         title: "Title"
+        timer: "Time limit"
+
+      test_passage:
+        time_left: "Time left"
 
       user:
         first_name: "First name"
@@ -110,6 +116,7 @@ en:
         questions_count: "Questions count"
         actions: "Actions"
         no_tests: "There are no tests yet"
+        timer: "Timer"
       show:
         create_new_question: "Create new question"
         no_questions: "This test has no questions yet"
@@ -127,6 +134,8 @@ en:
         success: "Test successfully updated"
       form_inline:
         submit: "OK"
+      form:
+        empty_timer: "without timer"
       destroy:
         deleted: "Test deleted"
       test_not_found: "No test with this number"
@@ -174,6 +183,7 @@ en:
       questions_count: "Questions count"
       actions: "Actions"
       no_tests: "There are no tests yet"
+      timer: "Timer"
     test:
       start: "Start"
 
@@ -189,10 +199,12 @@ en:
       header: "The '%{title}' test completed"
       test_passed_html: "<span id=\"text-success\">%{test_result}%</span> of answers are correct. Congratulations! Test passed."
       test_failed_html: "<span id=\"text-danger\">%{test_result}%</span> of answers are correct. Test failed."
-      all_tests: "Все тесты"
+      time_failed: "Unfortunately, You didn't complied to the time limit. Test failed"
+      <<: *all_tests
     show:
-      all_tests: "Все тесты"
+      <<: *all_tests
       gist_question: "Gist Question"
       header: "Passing test %{test_title}"
       next: "Next question"
       question_number: "Question %{num} from %{total}"
+      time_left: "Time left "
