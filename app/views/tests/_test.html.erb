@@ -5,9 +5,9 @@
   <td align="center"> <%= test.questions.count %> </td>
   <td align="center">
     <% if test.timer.nil? %>
-      <%= octicon 'clock' %>
-    <% else %>
       <%= octicon 'dash' %>
+    <% else %>
+      <%= octicon 'clock' %>
     <% end %>
   </td>
   <% if user_signed_in? %>
