@@ -42,10 +42,7 @@ en:
         category_id: "Category"
         level: "Level"
         title: "Title"
-        timer: "Time limit"
-
-      test_passage:
-        time_left: "Time left"
+        timer: "Time limit (minutes)"
 
       user:
         first_name: "First name"
@@ -202,9 +199,13 @@ en:
       time_failed: "Unfortunately, You didn't complied to the time limit. Test failed"
       <<: *all_tests
     show:
-      <<: *all_tests
       gist_question: "Gist Question"
       header: "Passing test %{test_title}"
       next: "Next question"
       question_number: "Question %{num} from %{total}"
-      time_left: "Time left "
+      time_left: "Time left"
+      <<: *all_tests
+    fail:
+      header: "Test \"%{title}\" failed"
+      time_failed: "Unfortunately you exceeded the time limit. Answers will not be accepted"
+      <<: *all_tests

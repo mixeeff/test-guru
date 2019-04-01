@@ -18,12 +18,19 @@ class TestPassage < ApplicationRecord
     test_result >= 85
   end
 
-  def test_result
-    (correct_questions / test.questions.count.to_f * 100).round
+  def save_result
+    self.test_result = (correct_questions / test.questions.count.to_f * 100).round
+    save!
   end
 
   def current_question_num
     test.questions.order(:id).where('id < ?', current_question.id).count + 1
+  end
+
+  def set_failed
+    self.correct_questions = 0
+    self.test_result = 0
+    save!
   end
 
   private
