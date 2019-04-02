@@ -24,10 +24,10 @@
           <p><%= link_to t('.gist_question'), gist_test_passage_path(@test_passage), method: :post %></p>
           <p><%= form.submit t('.next'), class: "btn-primary mt-2" %></p>
           <% unless @test_passage.test.timer.nil? %>
-            <p>
-              <%= form.label :timer, t('.time_left'), class: 'mb-0 mt-2' %>
-              <%= form.text_field :timer, value: "", class:'time_left form-control-plaintext form-control-lg p-0', readonly: true, selectable: false, data: { end_time: set_end_time(@test_passage), path: test_passage_path(@test_passage) } %>
-            </p>
+            <h4>
+              <%= t('.time_left') %>
+              <%= content_tag :span, "", class:'time_left', data: { end_time: @test_passage.test_end_time, path: test_passage_path(@test_passage) } %>
+            </h4>
           <% end %>
         </div>
       <% end %>

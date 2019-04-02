@@ -196,7 +196,7 @@ en:
       header: "The '%{title}' test completed"
       test_passed_html: "<span id=\"text-success\">%{test_result}%</span> of answers are correct. Congratulations! Test passed."
       test_failed_html: "<span id=\"text-danger\">%{test_result}%</span> of answers are correct. Test failed."
-      time_failed: "Unfortunately, You didn't complied to the time limit. Test failed"
+      time_failed: "Unfortunately you exceeded the time limit. Answers will not be accepted"
       <<: *all_tests
     show:
       gist_question: "Gist Question"
@@ -205,7 +205,4 @@ en:
       question_number: "Question %{num} from %{total}"
       time_left: "Time left"
       <<: *all_tests
-    fail:
-      header: "Test \"%{title}\" failed"
-      time_failed: "Unfortunately you exceeded the time limit. Answers will not be accepted"
-      <<: *all_tests
+      

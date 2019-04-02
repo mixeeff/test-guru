@@ -3,6 +3,8 @@
   <p class="lead">
   <% if @test_passage.successful? %>
       <%= t('.test_passed_html', test_result: @test_passage.test_result) %>
+  <% elsif @test_passage.time_failed %>
+      <%= t('.time_failed') %>
   <% else %>
       <%= t('.test_failed_html', test_result: @test_passage.test_result) %>
   <% end %>

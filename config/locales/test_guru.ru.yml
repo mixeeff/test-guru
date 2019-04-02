@@ -205,7 +205,7 @@ ru:
       header: "Тест \"%{title}\" завершен"
       test_passed_html: "<span class=\"text-success\">%{test_result}%</span> верных ответов. Поздравляем! Тест пройден."
       test_failed_html: "<span class=\"text-danger\">%{test_result}%</span> верных ответов. Тест не пройден."
-      time_failed: "К сожалению, вы не уложились в отведенное время. Тест не пройден."
+      time_failed: "К сожалению, вы не уложились в отведенное время. Ответы не будут засчитаны"
       <<: *all_tests
     show:
       gist_question: "Сохранить вопрос в gist"
@@ -213,8 +213,4 @@ ru:
       next: "Следующий вопрос"
       question_number: "Вопрос %{num} из %{total}"
       time_left: "Оставшееся время"
-      <<: *all_tests
-    fail:
-      header: "Тест \"%{title}\" не пройден"
-      time_failed: "К сожалению, вы не уложились в отведенное время. Ответы не будут засчитаны"
       <<: *all_tests

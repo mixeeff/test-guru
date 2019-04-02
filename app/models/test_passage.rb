@@ -5,6 +5,8 @@ class TestPassage < ApplicationRecord
 
   before_validation :set_current_question
 
+  attr_accessor :time_failed
+
   def completed?
     current_question.nil?
   end
@@ -19,7 +21,13 @@ class TestPassage < ApplicationRecord
   end
 
   def save_result
-    self.test_result = (correct_questions / test.questions.count.to_f * 100).round
+    if timer_valid?
+      self.test_result = (correct_questions / test.questions.count.to_f * 100).round
+    else
+      self.test_result = 0
+      self.correct_questions = 0
+      self.time_failed = true
+    end
     save!
   end
 
@@ -27,10 +35,9 @@ class TestPassage < ApplicationRecord
     test.questions.order(:id).where('id < ?', current_question.id).count + 1
   end
 
-  def set_failed
-    self.correct_questions = 0
-    self.test_result = 0
-    save!
+  def test_end_time
+    end_time = created_at.to_i
+    end_time += test.timer# * 60
   end
 
   private
@@ -53,6 +60,11 @@ class TestPassage < ApplicationRecord
     else
       test.questions.order(:id).where('id > ?', current_question.id).first
     end
+  end
+
+  def timer_valid?
+    return true if test.timer.nil?
+    Time.now.to_i < test_end_time
   end
 
 end

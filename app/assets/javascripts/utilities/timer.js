@@ -14,7 +14,7 @@ document.addEventListener('turbolinks:load', function(){
       }
       var minutes = Math.trunc(time_left / 60);
       var seconds = time_left % 60;
-      timer.value = leadZero(minutes) + ":" + leadZero(seconds);
+      timer.innerHTML = leadZero(minutes) + ":" + leadZero(seconds);
     }, 1000);
   }
 })
