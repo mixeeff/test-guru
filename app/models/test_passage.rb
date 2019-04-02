@@ -37,7 +37,7 @@ class TestPassage < ApplicationRecord
 
   def test_end_time
     end_time = created_at.to_i
-    end_time += test.timer# * 60
+    end_time += test.timer * 60
   end
 
   private
