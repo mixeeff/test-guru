@@ -8,7 +8,7 @@ class TestPassage < ApplicationRecord
   attr_accessor :time_failed
 
   def completed?
-    current_question.nil?
+    !has_time? || current_question.nil?
   end
 
   def accept!(answer_ids)
@@ -21,7 +21,7 @@ class TestPassage < ApplicationRecord
   end
 
   def save_result
-    if timer_valid?
+    if has_time?
       self.test_result = (correct_questions / test.questions.count.to_f * 100).round
     else
       self.test_result = 0
@@ -36,8 +36,7 @@ class TestPassage < ApplicationRecord
   end
 
   def test_end_time
-    end_time = created_at.to_i
-    end_time += test.timer * 60
+    created_at + test.timer.minutes
   end
 
   private
@@ -62,9 +61,8 @@ class TestPassage < ApplicationRecord
     end
   end
 
-  def timer_valid?
-    return true if test.timer.nil?
-    Time.now.to_i < test_end_time
+  def has_time?
+    test.timer.nil? || (test_end_time - Time.current) > 0
   end
 
 end

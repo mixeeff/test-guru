@@ -11,7 +11,6 @@ class TestPassagesController < ApplicationController
       @test_passage.save_result
       TestsMailer.completed_test(@test_passage).deliver_now
       render :result
-      #redirect_to result_test_passage_path(@test_passage)
     else
       render :show
     end

@@ -26,7 +26,7 @@
           <% unless @test_passage.test.timer.nil? %>
             <h4>
               <%= t('.time_left') %>
-              <%= content_tag :span, "", class:'time_left', data: { end_time: @test_passage.test_end_time, path: test_passage_path(@test_passage) } %>
+              <%= content_tag :span, "", class:'time_left', data: { end_time: @test_passage.test_end_time.to_i, path: test_passage_path(@test_passage) } %>
             </h4>
           <% end %>
         </div>
