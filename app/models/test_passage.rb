@@ -5,8 +5,10 @@ class TestPassage < ApplicationRecord
 
   before_validation :set_current_question
 
+  attr_accessor :time_failed
+
   def completed?
-    current_question.nil?
+    !has_time? || current_question.nil?
   end
 
   def accept!(answer_ids)
@@ -18,12 +20,23 @@ class TestPassage < ApplicationRecord
     test_result >= 85
   end
 
-  def test_result
-    (correct_questions / test.questions.count.to_f * 100).round
+  def save_result
+    if has_time?
+      self.test_result = (correct_questions / test.questions.count.to_f * 100).round
+    else
+      self.test_result = 0
+      self.correct_questions = 0
+      self.time_failed = true
+    end
+    save!
   end
 
   def current_question_num
     test.questions.order(:id).where('id < ?', current_question.id).count + 1
+  end
+
+  def test_end_time
+    created_at + test.timer.minutes
   end
 
   private
@@ -46,6 +59,10 @@ class TestPassage < ApplicationRecord
     else
       test.questions.order(:id).where('id > ?', current_question.id).first
     end
+  end
+
+  def has_time?
+    test.timer.nil? || (test_end_time - Time.current) > 0
   end
 
 end

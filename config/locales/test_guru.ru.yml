@@ -10,6 +10,8 @@ ru:
       edit: "Редактировать"
     - &app_name
       app_name: "ТЕСТ-ГУРУ"
+    - &all_tests
+      all_tests: "Все тесты"
 
   activerecord:
     models:
@@ -44,6 +46,7 @@ ru:
         category_id: "Категория"
         level: "Уровень"
         title: "Название"
+        timer: "Ограничение по времени (минут)"
 
       user:
         first_name: "Имя"
@@ -115,6 +118,7 @@ ru:
         questions_count: "Кол-во вопросов"
         actions: "Действия"
         no_tests: "Пока нет ни одного теста"
+        timer: "Таймер"
       show:
         no_questions: "У этого теста пока нет вопросов"
         create_new_question: "Создать новый вопрос"
@@ -133,6 +137,8 @@ ru:
         success: "Тест успешно обновлен"
       form_inline:
         submit: "OK"
+      form:
+        empty_timer: "без ограничения времени"
       destroy:
         deleted: "Тест удален"
       test_not_found: "Теста с таким номером нет"
@@ -183,6 +189,7 @@ ru:
       questions_count: "Кол-во вопросов"
       actions: "Действия"
       no_tests: "Пока нет ни одного теста"
+      timer: "Таймер"
     test:
       start: "Старт"
 
@@ -198,10 +205,12 @@ ru:
       header: "Тест \"%{title}\" завершен"
       test_passed_html: "<span class=\"text-success\">%{test_result}%</span> верных ответов. Поздравляем! Тест пройден."
       test_failed_html: "<span class=\"text-danger\">%{test_result}%</span> верных ответов. Тест не пройден."
-      all_tests: "Все тесты"
+      time_failed: "К сожалению, вы не уложились в отведенное время. Ответы не будут засчитаны"
+      <<: *all_tests
     show:
-      all_tests: "Все тесты"
       gist_question: "Сохранить вопрос в gist"
       header: "Проходим тест %{test_title}"
       next: "Следующий вопрос"
       question_number: "Вопрос %{num} из %{total}"
+      time_left: "Оставшееся время"
+      <<: *all_tests

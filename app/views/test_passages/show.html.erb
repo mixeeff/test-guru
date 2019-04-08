@@ -13,7 +13,7 @@
         <%= @test_passage.current_question.body %>
       </h2>
 
-      <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
+      <%= form_with url: test_passage_path(@test_passage), local: true, method: :put, id: 'test-passage-form' do |form| %>
         <div class="form-group">
           <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
             <div class="form-check mb-3">
@@ -23,8 +23,15 @@
           <% end %>
           <p><%= link_to t('.gist_question'), gist_test_passage_path(@test_passage), method: :post %></p>
           <p><%= form.submit t('.next'), class: "btn-primary mt-2" %></p>
+          <% unless @test_passage.test.timer.nil? %>
+            <h4>
+              <%= t('.time_left') %>
+              <%= content_tag :span, "", class:'time_left', data: { end_time: @test_passage.test_end_time.to_i, path: test_passage_path(@test_passage) } %>
+            </h4>
+          <% end %>
         </div>
       <% end %>
+
     </div>
   </div>
 </div>
