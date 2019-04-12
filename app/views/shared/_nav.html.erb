@@ -8,7 +8,9 @@
   <nav class="navbar navbar-dark bg-dark">
   <%= link_to t('.app_name'), root_path, class: "navbar-brand" %>
   <%= link_to t('.all_badges'), badges_path, class: "text-light" %>
-  <%= link_to t('.my_badges'), users_badges_path, class: "text-light" %>
+  <% if user_signed_in? %>
+    <%= link_to t('.my_badges'), users_badges_path, class: "text-light" %>
+  <% end %>
 <% end %>
 
 
