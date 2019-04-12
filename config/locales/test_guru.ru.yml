@@ -17,6 +17,7 @@ ru:
     models:
       admin: "Администратор"
       answer: "Ответ"
+      badge: "Бэйдж"
       category: "Категория"
       feedback: "Письмо администратору"
       gist: "Gist"
@@ -28,6 +29,12 @@ ru:
       answer:
         body: "Текст ответа"
         correct: "Правильный"
+
+      badge:
+        name: "Название"
+        filename: "Имя файла"
+        rule_type: "Тип правила"
+        rule_value: "Параметр правила"
 
       category:
         title: "Названиe"
@@ -77,6 +84,12 @@ ru:
         <<: *edit
         <<: *delete
         <<: *confirm
+
+    badges:
+      index:
+        header: "Все бэйджи"
+        create: "Создать новый бэйдж"
+        <<: *back
 
     gists:
       index:
@@ -149,6 +162,11 @@ ru:
         <<: *delete
         <<: *confirm
 
+  badges:
+    index:
+      header: "Вы можете заработать следующие бэйджи:"
+      <<: *back
+
   gist_question_service:
     description: "Вопрос теста \"%{test_title}\" из Тест-Гуру"
 
@@ -175,8 +193,12 @@ ru:
         few: "Обнаружено %{count} ошибки"
         many: "Обнаружено %{count} ошибок"
         other: "Обнаружено %{count} ошибки"
+
     nav:
+      all_badges: "Все бэйджи"
+      my_badges: "Мои бэйджи"
       <<: *app_name
+
     footer:
       <<: *app_name
       project: "- система работы с онлайн-тестами. Учебный проект в онлайн-школе "
@@ -206,6 +228,7 @@ ru:
       test_passed_html: "<span class=\"text-success\">%{test_result}%</span> верных ответов. Поздравляем! Тест пройден."
       test_failed_html: "<span class=\"text-danger\">%{test_result}%</span> верных ответов. Тест не пройден."
       time_failed: "К сожалению, вы не уложились в отведенное время. Ответы не будут засчитаны"
+      badges: "Вы заработали следующие бэйджи:"
       <<: *all_tests
     show:
       gist_question: "Сохранить вопрос в gist"
@@ -214,3 +237,9 @@ ru:
       question_number: "Вопрос %{num} из %{total}"
       time_left: "Оставшееся время"
       <<: *all_tests
+
+  users_badges:
+    index:
+      header: "Вы заработали следующие бэйджи:"
+      no_badges: "У вас пока нет ни одного бэйджа"
+      <<: *back

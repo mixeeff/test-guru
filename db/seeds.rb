@@ -12,9 +12,9 @@ categories = Category.create!([
   ])
 
 tests = Test.create!([
-  {title: 'Hard Rock группы', level: 1, category: categories[0]},
+  {title: 'Hard Rock группы', level: 2, category: categories[0]},
   {title: 'Французские комедии', level: 2, category: categories[1]},
-  {title: 'Кино СССР', level: 3, category: categories[1]},
+  {title: 'Кино СССР', level: 2, category: categories[1]},
   {title: 'Art и Progressive Rock группы', level: 5, category: categories[0]}
   ])
 
@@ -43,10 +43,10 @@ Answer.create!([
   {question: questions[5], body: 'Плюк', correct: true},
   {question: questions[5], body: 'Шелезяка'},
   {question: questions[6], body: 'Роберт Фрипп'},
-  {question: questions[6], body: 'Питер Хэммилл'},
+  {question: questions[6], body: 'Питер Хэммилл', correct: true},
   {question: questions[6], body: 'Йон Андерсон'},
   {question: questions[6], body: 'Джим Моррисон'},
-  {question: questions[7], body: 'Призма'},
+  {question: questions[7], body: 'Призма', correct: true},
   {question: questions[7], body: 'Линза'},
   {question: questions[7], body: 'Калейдоскоп'}
   ])

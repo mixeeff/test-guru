@@ -10,6 +10,7 @@ class TestPassagesController < ApplicationController
     if @test_passage.completed?
       @test_passage.save_result
       TestsMailer.completed_test(@test_passage).deliver_now
+      check_badges if @test_passage.successful?
       render :result
     else
       render :show
@@ -32,6 +33,17 @@ class TestPassagesController < ApplicationController
   private
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def check_badges
+    @all_badges = Badge.all
+    @badges = []
+    @all_badges.each do |badge|
+      if badge.achieved?(@test_passage)
+        current_user.badges.push(badge)
+        @badges.push(badge)
+      end
+    end
   end
 
 end

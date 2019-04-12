@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :badges, only: %i[index show]
+
   devise_for :users, :controllers => { sessions: 'sessions' }
 
   devise_scope :admin do
@@ -20,6 +22,7 @@ Rails.application.routes.draw do
       end
     end
     resources :gists, only: :index
+    resources :badges
   end
 
   get 'admin', to: 'admin/tests#index'
@@ -31,6 +34,8 @@ Rails.application.routes.draw do
       post :gist
     end
   end
+
+  resources :users_badges, only: :index
 
   resources :feedbacks, only: [:new, :create]
 

@@ -17,6 +17,7 @@ en:
     models:
       admin: "Admin"
       answer: "Answer"
+      badge: "Badge"
       category: "Category"
       gist: "Gist"
       question: "Question"
@@ -27,6 +28,12 @@ en:
       answer:
         body: "Answer body"
         correct: "Correct"
+
+      badge:
+        name: "Name"
+        filename: "Filename"
+        rule_type: "Rule type"
+        rule_value: "Rule value"
 
       gist:
         question_id: "Question"
@@ -72,6 +79,12 @@ en:
         <<: *edit
         <<: *delete
         <<: *confirm
+
+    badges:
+      index:
+        header: "All badges"
+        create: "Create new badge"
+        <<: *back
 
     gists:
       index:
@@ -142,6 +155,11 @@ en:
         <<: *edit
         <<: *delete
 
+  badges:
+    index:
+      header: "You can earn these badges:"
+      <<: *back
+
   gist_question_service:
     description: "A question about '%{test_title}' from Test-Guru"
 
@@ -166,8 +184,12 @@ en:
       header:
         one: "%{count} error detected"
         other: "%{count} errors detected"
+
     nav:
+      all_badges: "All Badges"
+      my_badges: "My Badges"
       <<: *app_name
+
     footer:
       <<: *app_name
       project: "- online-test management. Study project in online school "
@@ -194,9 +216,10 @@ en:
       error: "An error occured while saving gist"
     result:
       header: "The '%{title}' test completed"
-      test_passed_html: "<span id=\"text-success\">%{test_result}%</span> of answers are correct. Congratulations! Test passed."
-      test_failed_html: "<span id=\"text-danger\">%{test_result}%</span> of answers are correct. Test failed."
+      test_passed_html: "<span class=\"text-success\">%{test_result}%</span> of answers are correct. Congratulations! Test passed."
+      test_failed_html: "<span class=\"text-danger\">%{test_result}%</span> of answers are correct. Test failed."
       time_failed: "Unfortunately you exceeded the time limit. Answers will not be accepted"
+      badges: "You've earned these badges:"
       <<: *all_tests
     show:
       gist_question: "Gist Question"
@@ -205,4 +228,9 @@ en:
       question_number: "Question %{num} from %{total}"
       time_left: "Time left"
       <<: *all_tests
-      
+
+  users_badges:
+    index:
+      header: "You've earned these badges:"
+      no_badges: "You have no badges yet"
+      <<: *back

@@ -8,7 +8,14 @@
   <% else %>
       <%= t('.test_failed_html', test_result: @test_passage.test_result) %>
   <% end %>
-  </p>
+
+  <% unless @badges.blank? %>
+    <p class="lead"><%= t('.badges') %></p>
+    <div class="card-group mt-5">
+      <%= render @badges %>
+    </div>
+  <% end %>
+
   <p>
   <%= link_to t('.all_tests'), tests_path %>
   </p>

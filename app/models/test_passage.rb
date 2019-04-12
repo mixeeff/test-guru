@@ -7,6 +7,8 @@ class TestPassage < ApplicationRecord
 
   attr_accessor :time_failed
 
+  scope :passed, -> { where(test_result: 85..100) } #successful?
+
   def completed?
     !has_time? || current_question.nil?
   end

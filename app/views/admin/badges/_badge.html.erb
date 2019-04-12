@@ -1,0 +1,7 @@
+<tr>
+  <td><%= link_to badge.name, edit_admin_badge_path(badge) %></td>
+  <td> <%= badge.filename %> </td>
+  <td> <%= badge.rule_type %> </td>
+  <td> <%= badge.rule_value %> </td>
+  <td> <%= link_to t('.delete'), admin_badge_path(badge), method: :delete, data: { confirm: t('.confirm') } %> </td>
+</tr>

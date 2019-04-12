@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @badge.name %>
+</p>
+
+<strong>Filename:</strong>
+  <%= @badge.filename %>
+</p>
+
+<p>
+  <strong>Rule value:</strong>
+  <%= @badge.rule_value %>
+</p>
+
+<%= link_to 'Edit', edit_badge_path(@badge) %> |
+<%= link_to 'Back', admin_badges_path %>

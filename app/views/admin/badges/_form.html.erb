@@ -1,0 +1,39 @@
+<div class="form-group">
+  <%= form_with model: [:admin, @badge], local: true, data: { hello: ['hello', 'world'  ] }, id: 'badge-form' do |form| %>
+    <p>
+      <%= form.label :name %>
+      <%= form.text_field :name, class:'form-control' %>
+    </p>
+
+    <p>
+      <%= form.label :filename %>
+      <%= form.text_field :filename, class:'form-control' %>
+    </p>
+
+    <div class="form-check">
+      <%= form.radio_button :rule_type, 'level', class: 'form-check-input', checked: true %>
+      <%= form.label :rule_type, 'level', class: 'form-check-label' %>
+      <span class = "level-select">
+        <%= form.collection_select :rule_value, Test.select(:level).distinct, :level, :level %>
+      </span>
+    </div>
+
+    <div class="form-check">
+      <%= form.radio_button :rule_type, 'category_id',  class: 'form-check-input' %>
+      <%= form.label :rule_type, 'category', class: 'form-check-label' %>
+      <span class = "category-select hide">
+        <%= form.collection_select :temp, Category.all, :id, :title %>
+      </span>
+    </div>
+
+    <div class="form-check">
+      <%= form.radio_button :rule_type, 'pass',  class: 'form-check-input' %>
+      <%= form.label :rule_type, :pass, class: 'form-check-label' %>
+    </div>
+
+
+    <p>
+      <%= form.submit class: 'btn-primary mt-3' %>
+    </p>
+  <% end %>
+</div>
