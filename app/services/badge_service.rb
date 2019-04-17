@@ -30,7 +30,7 @@ class BadgeService
     count_user_badges(@user, badge) < count_success_passes(@user, badge)
   end
 
-  def pass_check(badge)
+  def first_pass_check(badge)
     TestPassage.where(test: @test_passage.test, user: @user).count == 1
   end
 
