@@ -81,10 +81,19 @@ en:
         <<: *confirm
 
     badges:
+      badge:
+        delete: "Delete"
       index:
         header: "All badges"
         create: "Create new badge"
+        no_badges: "There are no Badges yet"
         <<: *back
+      new:
+        header: "Create new badge"
+        <<: *back
+      form:
+        rule_type: "Rule Type"
+        rule_value: "Rule Value"
 
     gists:
       index:

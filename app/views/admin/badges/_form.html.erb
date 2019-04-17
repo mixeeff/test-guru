@@ -1,5 +1,5 @@
 <div class="form-group">
-  <%= form_with model: [:admin, @badge], local: true, data: { hello: ['hello', 'world'  ] }, id: 'badge-form' do |form| %>
+  <%= form_with model: [:admin, @badge], local: true, id: 'badge-form' do |form| %>
     <p>
       <%= form.label :name %>
       <%= form.text_field :name, class:'form-control' %>
@@ -10,30 +10,32 @@
       <%= form.text_field :filename, class:'form-control' %>
     </p>
 
-    <div class="form-check">
-      <%= form.radio_button :rule_type, 'level', class: 'form-check-input', checked: true %>
-      <%= form.label :rule_type, 'level', class: 'form-check-label' %>
-      <span class = "level-select">
-        <%= form.collection_select :rule_value, Test.select(:level).distinct, :level, :level %>
-      </span>
-    </div>
+    <p class = 'mt-4'>
+      <%= form.label :rule_type, t('.rule_type') %>
+      <%= form.select :rule_type, Badge::RULE_TYPES %>
+    </p>
 
-    <div class="form-check">
-      <%= form.radio_button :rule_type, 'category_id',  class: 'form-check-input' %>
-      <%= form.label :rule_type, 'category', class: 'form-check-label' %>
-      <span class = "category-select hide">
-        <%= form.collection_select :temp, Category.all, :id, :title %>
-      </span>
-    </div>
-
-    <div class="form-check">
-      <%= form.radio_button :rule_type, 'pass',  class: 'form-check-input' %>
-      <%= form.label :rule_type, :pass, class: 'form-check-label' %>
-    </div>
-
+    <p id = 'rule_value'>
+      <%= form.label :rule_value, t('.rule_value') %>
+      <%= form.select :rule_value, available_levels %>
+    </p>
 
     <p>
       <%= form.submit class: 'btn-primary mt-3' %>
     </p>
   <% end %>
+
+
+  <%= form_with model: [:admin, @badge], local: true do |form| %>
+    <p id = 'rule_value_0', class = 'hide'>
+      <%= form.label :rule_value, t('.rule_value') %>
+      <%= form.select :rule_value, available_levels %>
+    </p>
+
+    <p id = 'rule_value_1', class = 'hide'>
+      <%= form.label :rule_value, t('.rule_value') %>
+      <%= form.select :rule_value, available_categories %>
+    </p>
+  <% end %>
+
 </div>

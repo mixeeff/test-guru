@@ -86,10 +86,19 @@ ru:
         <<: *confirm
 
     badges:
+      badge:
+        delete: "Удалить"
       index:
         header: "Все бэйджи"
         create: "Создать новый бэйдж"
+        no_badges: "Пока не создано ни одного бейджа"
         <<: *back
+      new:
+        header: "Создание нового бэйджа"
+        <<: *back
+      form:
+        rule_type: "Тип правила"
+        rule_value: "Значение"
 
     gists:
       index:
