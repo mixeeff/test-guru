@@ -11,13 +11,11 @@
     </p>
 
     <p class = 'mt-4'>
-      <%= form.label :rule_type, t('.rule_type') %>
-      <%= form.select :rule_type, Badge::RULE_TYPES %>
-    </p>
-
-    <p id = 'rule_value'>
-      <%= form.label :rule_value, t('.rule_value') %>
-      <%= form.select :rule_value, available_levels %>
+      <%= form.label :rule_type, t('.rule_type') %><br>
+      <%= form.select :rule_type, local_rule_types %>&nbsp
+      <span id = 'rule_value'>
+        <%= form.select :rule_value, available_levels %>
+      </span>
     </p>
 
     <p>
@@ -25,14 +23,12 @@
     </p>
   <% end %>
 
-  <p id = 'rule_value_0', class = 'hide'>
-    <%= label_tag :rule_value, t('.rule_value') %>
+  <span id = 'rule_value_0', class = 'hide'>
     <%= select :badge, :rule_value, options_for_select(available_levels) %>
-  </p>
+  </span>
 
-  <p id = 'rule_value_1', class = 'hide'>
-    <%= label_tag :rule_value, t('.rule_value') %>
+  <span id = 'rule_value_1', class = 'hide'>
     <%= select :badge, :rule_value, options_for_select(available_categories) %>
-  </p>
+  </span>
 
 </div>

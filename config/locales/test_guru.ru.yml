@@ -97,8 +97,10 @@ ru:
         header: "Создание нового бэйджа"
         <<: *back
       form:
-        rule_type: "Тип правила"
-        rule_value: "Значение"
+        rule_type: "Правило"
+        level: "все тесты уровня"
+        category_id: "все тесты категории"
+        first_pass: "тест с первого раза"
 
     gists:
       index:

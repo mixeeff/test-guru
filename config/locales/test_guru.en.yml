@@ -92,9 +92,10 @@ en:
         header: "Create new badge"
         <<: *back
       form:
-        rule_type: "Rule Type"
-        rule_value: "Rule Value"
-
+        rule_type: "Rule"
+        level: "all tests with level"
+        category_id: "all tests with category"
+        first_pass: "test by first pass"
     gists:
       index:
         header: "Gists created"
