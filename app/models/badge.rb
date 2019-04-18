@@ -1,8 +1,8 @@
 class Badge < ApplicationRecord
+  RULE_TYPES = ['level', 'category_id', 'first_pass'].freeze
+
   has_many :users_badges, dependent: :destroy
   has_many :users, through: :users_badges
-
-  RULE_TYPES = ['level', 'category_id', 'first_pass']
 
   validates :name, presence: true
   validates :filename, presence: true

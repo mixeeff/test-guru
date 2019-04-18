@@ -5,15 +5,7 @@ class BadgeService
   end
 
   def check_badges
-    @all_badges = Badge.all
-    @badges = []
-    @all_badges.each do |badge|
-      if badge_achieved?(badge)
-        @user.badges.push(badge)
-        @badges.push(badge)
-      end
-    end
-    @badges
+    @badges = Badge.all.select { |badge| badge_achieved?(badge) }
   end
 
   def badge_achieved?(badge)
@@ -22,35 +14,32 @@ class BadgeService
 
   def level_check(badge)
     return false if @test_passage.test.level != badge.rule_value
-    count_user_badges(@user, badge) < count_success_passes(@user, badge)
+    check_badge(badge)
   end
 
   def category_id_check(badge)
     return false if @test_passage.test.category_id != badge.rule_value
-    count_user_badges(@user, badge) < count_success_passes(@user, badge)
+    check_badge(badge)
   end
 
   def first_pass_check(badge)
-    TestPassage.where(test: @test_passage.test, user: @user).count == 1
+    @user.test_passages.where(test: @test_passage.test, user: @user).count == 1
   end
 
   private
 
-  def count_success_passes(user, badge)
-    user_tests = count_user_tests(user, badge)
-    if user_tests.size == all_tests_count(badge)
-      user_tests.values.min # возвращаем минимальное из всех количеств прохождений
-    else
-      0
-    end
+  def check_badge(badge)
+    user_tests = count_user_tests(badge) # получаем хэш с кол-вом прохождений каждого теста соотв. условию
+    user_tests.size == all_tests_count(badge) &&  # число записей в хэше д.б. равно общему кол-ву тестов соотв. условию
+      user_tests.values.min > count_user_badges(badge)  # если минимальное кол-во прохождений больше чем кол-во бэйджей - выдаем бэйдж
   end
 
-  def count_user_tests(user, badge)
+  def count_user_tests(badge)
     # возвращает хэш с кол-вом прохождений каждого теста соотв. условию
-    TestPassage.joins(:test).where("user_id = ? AND tests.#{badge.rule_type} = ?", user, badge.rule_value)
-                            .passed
-                            .group(:test_id)
-                            .count
+    @user.test_passages.joins(:test).where("tests.#{badge.rule_type} = ?", badge.rule_value)
+    .passed
+    .group(:test)
+    .count
   end
 
   def all_tests_count(badge)
@@ -58,9 +47,9 @@ class BadgeService
     Test.where("#{badge.rule_type} = ?", badge.rule_value).count
   end
 
-  def count_user_badges(user, badge)
+  def count_user_badges(badge)
     #есть ли такие бэйджи у пользователя
-    user.badges.where(id: badge.id).count
+    @user.badges.where(id: badge.id).count
   end
 
 end

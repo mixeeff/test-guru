@@ -25,17 +25,14 @@
     </p>
   <% end %>
 
+  <p id = 'rule_value_0', class = 'hide'>
+    <%= label_tag :rule_value, t('.rule_value') %>
+    <%= select :badge, :rule_value, options_for_select(available_levels) %>
+  </p>
 
-  <%= form_with model: [:admin, @badge], local: true do |form| %>
-    <p id = 'rule_value_0', class = 'hide'>
-      <%= form.label :rule_value, t('.rule_value') %>
-      <%= form.select :rule_value, available_levels %>
-    </p>
-
-    <p id = 'rule_value_1', class = 'hide'>
-      <%= form.label :rule_value, t('.rule_value') %>
-      <%= form.select :rule_value, available_categories %>
-    </p>
-  <% end %>
+  <p id = 'rule_value_1', class = 'hide'>
+    <%= label_tag :rule_value, t('.rule_value') %>
+    <%= select :badge, :rule_value, options_for_select(available_categories) %>
+  </p>
 
 </div>

@@ -4,6 +4,8 @@ class TestPassagesController < ApplicationController
 
   def show; end
 
+  def result; end
+
   def update
     @test_passage.accept!(params[:answer_ids])
 
@@ -11,6 +13,8 @@ class TestPassagesController < ApplicationController
       @test_passage.save_result
       TestsMailer.completed_test(@test_passage).deliver_now
       @badges = BadgeService.new(@test_passage, current_user).check_badges if @test_passage.successful?
+      current_user.badges << @badges unless @badges.nil?
+      #redirect_to result_test_passage_path(@test_passage)
       render :result
     else
       render :show
