@@ -1,0 +1,28 @@
+<div class="container-fluid justify-content-center mt-3">
+  <h1><%= t('.header') %></h1>
+
+  <% if @badges.present? %>
+
+    <%= render 'shared/errors', resource: @test %>
+
+    <table class="table">
+      <tr>
+        <th><%= Badge.human_attribute_name(:name) %></th>
+        <th><%= Badge.human_attribute_name(:filename) %></th>
+        <th><%= Badge.human_attribute_name(:rule_type) %></th>
+        <th><%= Badge.human_attribute_name(:rule_value) %></th>
+      </tr>
+      <%= render @badges %>
+    </table>
+
+  <% else %>
+    <p class='lead'><%= t('.no_badges') %></p>
+  <% end %>
+
+  <p class="text-center mt-4">
+    <%= link_to t('.create'), new_admin_badge_path %>
+  </p>
+  <p class="text-center">
+    <%= link_to t('.back'), admin_tests_path %>
+  </p>
+</div>

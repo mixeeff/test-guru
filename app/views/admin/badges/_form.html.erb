@@ -1,0 +1,34 @@
+<div class="form-group">
+  <%= form_with model: [:admin, @badge], local: true, id: 'badge-form' do |form| %>
+    <p>
+      <%= form.label :name %>
+      <%= form.text_field :name, class:'form-control' %>
+    </p>
+
+    <p>
+      <%= form.label :filename %>
+      <%= form.text_field :filename, class:'form-control' %>
+    </p>
+
+    <p class = 'mt-4'>
+      <%= form.label :rule_type, t('.rule_type') %><br>
+      <%= form.select :rule_type, local_rule_types %>&nbsp
+      <span id = 'rule_value'>
+        <%= form.select :rule_value, available_levels %>
+      </span>
+    </p>
+
+    <p>
+      <%= form.submit class: 'btn-primary mt-3' %>
+    </p>
+  <% end %>
+
+  <span id = 'rule_value_0', class = 'hide'>
+    <%= select :badge, :rule_value, options_for_select(available_levels) %>
+  </span>
+
+  <span id = 'rule_value_1', class = 'hide'>
+    <%= select :badge, :rule_value, options_for_select(available_categories) %>
+  </span>
+
+</div>

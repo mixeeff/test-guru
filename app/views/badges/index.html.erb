@@ -1,0 +1,17 @@
+<div class="container-fluid justify-content-center mt-3">
+  <h1><%= t('.header') %></h1>
+  <% if @badges.present? %>
+
+    <%= render 'shared/errors', resource: @test %>
+    <div class="card-group mt-5">
+      <%= render @badges %>
+    </div>
+
+  <% else %>
+    <p class='lead'><%= t('.no_badges') %></p>
+  <% end %>
+
+  <p class="text-center">
+    <%= link_to t('.back'), tests_path %>
+  </p>
+</div>
