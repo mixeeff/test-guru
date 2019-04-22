@@ -12,10 +12,15 @@ class TestPassagesController < ApplicationController
     if @test_passage.completed?
       @test_passage.save_result
       TestsMailer.completed_test(@test_passage).deliver_now
-      @badges = BadgeService.new(@test_passage, current_user).check_badges if @test_passage.successful?
-      current_user.badges << @badges unless @badges.nil?
-      #redirect_to result_test_passage_path(@test_passage)
-      render :result
+
+      @badges = BadgeService.new(@test_passage).check_badges
+      flash_options = {}
+      unless @badges.empty?
+        current_user.badges << @badges
+        flash_options = { flash: { success: t('.new_badges', badges: @badges.pluck(:name).join(', ')) } }
+      end
+
+      redirect_to result_test_passage_path(@test_passage), flash_options
     else
       render :show
     end

@@ -32,7 +32,7 @@ en:
       badge:
         name: "Name"
         filename: "Filename"
-        rule_type: "Rule type"
+        rule_type: "Rule"
         rule_value: "Rule value"
 
       gist:
@@ -238,6 +238,8 @@ en:
       question_number: "Question %{num} from %{total}"
       time_left: "Time left"
       <<: *all_tests
+    update:
+      new_badges: "You've earned new badges: %{badges}"
 
   users_badges:
     index:

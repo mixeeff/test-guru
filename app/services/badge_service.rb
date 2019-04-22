@@ -1,7 +1,8 @@
 class BadgeService
-  def initialize(test_passage, user)
+  def initialize(test_passage)
     @test_passage = test_passage
-    @user = user
+    @user = test_passage.user
+    @test = test_passage.test
   end
 
   def check_badges
@@ -13,17 +14,20 @@ class BadgeService
   end
 
   def level_check(badge)
-    return false if @test_passage.test.level != badge.rule_value
+    return false unless @test_passage.successful?
+    return false if @test.level != badge.rule_value
     check_badge(badge)
   end
 
   def category_id_check(badge)
-    return false if @test_passage.test.category_id != badge.rule_value
+    return false unless @test_passage.successful?
+    return false if @test.category_id != badge.rule_value
     check_badge(badge)
   end
 
-  def first_pass_check(badge)
-    @user.test_passages.where(test: @test_passage.test, user: @user).count == 1
+  def first_pass_check(_badge)
+    return false unless @test_passage.successful?
+    @user.test_passages.where(test: @test).count == 1
   end
 
   private
@@ -37,9 +41,9 @@ class BadgeService
   def count_user_tests(badge)
     # возвращает хэш с кол-вом прохождений каждого теста соотв. условию
     @user.test_passages.joins(:test).where("tests.#{badge.rule_type} = ?", badge.rule_value)
-    .passed
-    .group(:test)
-    .count
+      .passed
+      .group(:test)
+      .count
   end
 
   def all_tests_count(badge)

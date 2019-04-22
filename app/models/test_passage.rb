@@ -5,8 +5,6 @@ class TestPassage < ApplicationRecord
 
   before_validation :set_current_question
 
-  attr_accessor :time_failed
-
   scope :passed, -> { where(test_result: 85..100) } #successful?
 
   def completed?

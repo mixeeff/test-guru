@@ -33,7 +33,7 @@ ru:
       badge:
         name: "Название"
         filename: "Имя файла"
-        rule_type: "Тип правила"
+        rule_type: "Правило"
         rule_value: "Параметр правила"
 
       category:
@@ -248,6 +248,8 @@ ru:
       question_number: "Вопрос %{num} из %{total}"
       time_left: "Оставшееся время"
       <<: *all_tests
+    update:
+      new_badges: "Вы заработали бэйджи: %{badges}"
 
   users_badges:
     index:
